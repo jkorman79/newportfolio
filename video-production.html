@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Production - Joseph Korman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="business-analytics.html" class="nav-link">Business Analytics</a>
+                <a href="video-production.html" class="nav-link active">Video Production</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Video Production Portfolio</h1>
+            <p class="page-subtitle">Creative storytelling through professional video production</p>
+        </div>
+
+        <!-- Video Categories -->
+        <div class="video-categories">
+            <button class="category-button active" onclick="filterVideos('independent')">
+                <i class="fas fa-film"></i>
+                Independent Productions
+            </button>
+            <button class="category-button" onclick="filterVideos('freelance')">
+                <i class="fas fa-handshake"></i>
+                Freelance Productions
+            </button>
+            <button class="category-button" onclick="filterVideos('internships')">
+                <i class="fas fa-briefcase"></i>
+                Professional Work
+            </button>
+        </div>
+
+        <!-- Independent Productions -->
+        <div id="independent" class="video-section">
+            <div class="video-grid">
+                <div class="video-item" data-category="independent">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/cfyjqfS4BeU">
+                        <img src="https://img.youtube.com/vi/cfyjqfS4BeU/maxresdefault.jpg" alt="The AirMatic 5000">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">The AirMatic 5000</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="independent">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/ZuQSAn3UAQ8">
+                        <img src="https://img.youtube.com/vi/ZuQSAn3UAQ8/maxresdefault.jpg" alt="A Leaf in the River">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">A Leaf in the River</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="independent">
+                    <div class="video-thumbnail" data-video-url="https://player.vimeo.com/video/946379266">
+                        <img src="https://vumbnail.com/946379266.jpg" alt="View Club">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">View Club</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="independent">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/ARQLB8FZbpw">
+                        <img src="https://img.youtube.com/vi/ARQLB8FZbpw/maxresdefault.jpg" alt="Methods of Montage">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Methods of Montage</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="independent">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/9DsCIiYsoWM">
+                        <img src="https://img.youtube.com/vi/9DsCIiYsoWM/maxresdefault.jpg" alt="Nadav: A Short Film">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Nadav: A Short Film</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Freelance Productions -->
+        <div id="freelance" class="video-section" style="display: none;">
+            <div class="video-grid">
+                <div class="video-item" data-category="freelance">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/LD7FNKQKos8">
+                        <img src="https://img.youtube.com/vi/LD7FNKQKos8/maxresdefault.jpg" alt="JLIC Fundraiser Video">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">JLIC Fundraiser Video</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="freelance">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/dFm6cp0IBHY">
+                        <img src="https://img.youtube.com/vi/dFm6cp0IBHY/maxresdefault.jpg" alt="Farber Class of 2024 Processional Video">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Farber Class of 2024 Processional Video</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="freelance">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/UXNc8PivQqk">
+                        <img src="https://img.youtube.com/vi/UXNc8PivQqk/maxresdefault.jpg" alt="Kaskeset Halftime Show Video">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Kaskeset Halftime Show Video</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="freelance">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/YIr4GPGVPsw">
+                        <img src="https://img.youtube.com/vi/YIr4GPGVPsw/maxresdefault.jpg" alt="Comprehensive Urology Holiday Dinner">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Comprehensive Urology Holiday Dinner</h3>
+                    </div>
+                </div>
+                <div class="video-item" data-category="freelance">
+                    <div class="video-thumbnail" data-video-url="https://player.vimeo.com/video/946375472">
+                        <img src="https://vumbnail.com/946375472.jpg" alt="Goodbye Menoras">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Goodbye Menoras</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Work -->
+        <div id="internships" class="video-section" style="display: none;">
+            <div class="internship-categories">
+                <button class="subcategory-button active" onclick="filterInternshipVideos('harpur-standard')">
+                    <i class="fas fa-graduation-cap"></i>
+                    Harpur Edge - Standard Format
+                </button>
+                <button class="subcategory-button" onclick="filterInternshipVideos('harpur-reels')">
+                    <i class="fas fa-mobile-alt"></i>
+                    Harpur Edge - Reels
+                </button>
+                <button class="subcategory-button" onclick="filterInternshipVideos('camp-standard')">
+                    <i class="fas fa-campground"></i>
+                    Camp Sports - Standard Format
+                </button>
+                <button class="subcategory-button" onclick="filterInternshipVideos('camp-reels')">
+                    <i class="fas fa-mobile-alt"></i>
+                    Camp Sports - Reels
+                </button>
+                <button class="subcategory-button" onclick="filterInternshipVideos('wynn-standard')">
+                    <i class="fas fa-video"></i>
+                    Wynn Productions - Standard Format
+                </button>
+                <button class="subcategory-button" onclick="filterInternshipVideos('wynn-reels')">
+                    <i class="fas fa-mobile-alt"></i>
+                    Wynn Productions - Reels
+                </button>
+            </div>
+
+            <!-- Harpur Edge Standard Format -->
+            <div id="harpur-standard" class="internship-section">
+                <h3>Harpur Edge - Standard Format</h3>
+                <div class="video-grid">
+                    <div class="video-item" data-category="harpur-standard">
+                        <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/EC8i0ai-KR0">
+                            <img src="https://img.youtube.com/vi/EC8i0ai-KR0/maxresdefault.jpg" alt="Harpur College Week Promo Video">
+                            <button class="video-play"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Harpur College Week Promo Video</h3>
+                        </div>
+                    </div>
+                    <div class="video-item" data-category="harpur-standard">
+                        <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/RMS5x9CQLUc">
+                            <img src="https://img.youtube.com/vi/RMS5x9CQLUc/maxresdefault.jpg" alt="Faculty Interview: Laure Spake">
+                            <button class="video-play"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Faculty Interview: Laure Spake - Anthropology</h3>
+                        </div>
+                    </div>
+                    <div class="video-item" data-category="harpur-standard">
+                        <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/PDmoo5i9FKM">
+                            <img src="https://img.youtube.com/vi/PDmoo5i9FKM/maxresdefault.jpg" alt="Faculty Interview: Hilary Izatt">
+                            <button class="video-play"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Faculty Interview: Hilary Izatt - Political Science</h3>
+                        </div>
+                    </div>
+                    <div class="video-item" data-category="harpur-standard">
+                        <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/-dB-JUQB7N4">
+                            <img src="https://img.youtube.com/vi/-dB-JUQB7N4/maxresdefault.jpg" alt="Faculty Interview: Matthew Emery">
+                            <button class="video-play"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Faculty Interview: Matthew Emery - Anthropology</h3>
+                        </div>
+                    </div>
+                    <div class="video-item" data-category="harpur-standard">
+                        <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/3uQ96S39rZY">
+                            <img src="https://img.youtube.com/vi/3uQ96S39rZY/maxresdefault.jpg" alt="Faculty Interview: Amy Churchill">
+                            <button class="video-play"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Faculty Interview: Amy Churchill - Environmental Science</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections would be added here with similar structure -->
+            <div id="harpur-reels" class="internship-section" style="display: none;">
+                <h3>Harpur Edge - Reels</h3>
+                <div class="video-grid">
+                    <div class="video-item" data-category="harpur-reels">
+                        <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/9v3Xz1ABSoQ">
+                            <img src="https://img.youtube.com/vi/9v3Xz1ABSoQ/maxresdefault.jpg" alt="Mythbusters! Crash Courses">
+                            <button class="video-play"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Mythbusters! Crash Courses</h3>
+                        </div>
+                    </div>
+                    <!-- Additional reels would be added here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>josephkorman79@gmail.com</p>
+                <p>Ready to collaborate on your next project</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="business-analytics.html">Business Analytics</a>
+                    <a href="video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function filterVideos(category) {
+            const sections = document.querySelectorAll('.video-section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            document.getElementById(category).style.display = 'block';
+            event.target.classList.add('active');
+        }
+
+        function filterInternshipVideos(subcategory) {
+            const sections = document.querySelectorAll('.internship-section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            const buttons = document.querySelectorAll('.subcategory-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            document.getElementById(subcategory).style.display = 'block';
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

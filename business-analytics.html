@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Analytics - Joseph Korman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="video-production.html" class="nav-link">Video Production</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Business Analytics Projects</h1>
+            <p class="page-subtitle">Data-driven insights and analytical solutions for business challenges</p>
+        </div>
+
+        <!-- Software Categories -->
+        <div class="software-categories">
+            <button class="category-button active" onclick="filterProjects('excel')">
+                <i class="fas fa-file-excel"></i>
+                Excel Projects
+            </button>
+            <button class="category-button" onclick="filterProjects('tableau')">
+                <i class="fas fa-chart-line"></i>
+                Tableau (Coming Soon)
+            </button>
+            <button class="category-button" onclick="filterProjects('r')">
+                <i class="fas fa-chart-bar"></i>
+                R Projects (Coming Soon)
+            </button>
+            <button class="category-button" onclick="filterProjects('python')">
+                <i class="fab fa-python"></i>
+                Python Projects (Coming Soon)
+            </button>
+        </div>
+
+        <!-- Excel Projects -->
+        <div id="excel-projects" class="projects-section">
+            <h2 class="section-title">Excel Projects</h2>
+            
+            <div class="project-subsection">
+                <h3 class="subsection-title">Independent Excel Projects/Templates</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Yearly Budget</h3>
+                        <p>Personal yearly budget tracking and planning spreadsheet with automated calculations and visual charts.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Template
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Job Application Record</h3>
+                        <p>Comprehensive tracking system for job applications with status updates and follow-up reminders.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Template
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Sports Standings</h3>
+                        <p>Sports team standings and statistics tracking spreadsheet. Useful for anyone in need of standings for their league.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Template
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Leining Record</h3>
+                        <p>Track your Torah learning progress with check marks and view statistics based on your progress.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Template
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Grade Yourself</h3>
+                        <p>Got a multiple-choice exam coming up? Use this sheet to test yourself on the material and see your grade.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Template
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Page Numbers: Koren</h3>
+                        <p>Reference list of what page the various Torah portions begin in both the Koren Chumash and the Koren Shabbat Siddur.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Template
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-subsection">
+                <h3 class="subsection-title">Business Excel Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Residence Pivot Table</h3>
+                        <p>Residence data analysis using pivot tables to identify trends and patterns in housing data.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Klapore Salary Report</h3>
+                        <p>Comprehensive salary analysis and reporting system with statistical analysis and visualizations.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Frangold Real Estate Budget</h3>
+                        <p>Real estate investment budget and financial planning spreadsheet with ROI calculations.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Manola Financial Projection</h3>
+                        <p>Financial projection and analysis system for business planning with scenario modeling.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Airport Revenue</h3>
+                        <p>Comprehensive airport revenue tracking and analysis system with performance metrics.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Bank Account Managers</h3>
+                        <p>Bank account management and tracking system with automated calculations and reporting.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Billable History</h3>
+                        <p>Track and analyze billable hours and project history with detailed reporting features.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Budget Planning</h3>
+                        <p>Comprehensive budget planning and tracking system with variance analysis and forecasting.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Consolidated Expenses</h3>
+                        <p>Track and analyze consolidated business expenses with categorization and trend analysis.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Loan Payment Calculator</h3>
+                        <p>Calculate and analyze loan payments and schedules with amortization tables and scenarios.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Mortgage Payment Calculator</h3>
+                        <p>Calculate and analyze mortgage payments and schedules with detailed financial breakdowns.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Annual Payroll</h3>
+                        <p>Annual payroll tracking and analysis system with tax calculations and reporting.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Restaurant Supply</h3>
+                        <p>Restaurant supply chain and inventory management system with cost tracking and optimization.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Sales Analysis Template</h3>
+                        <p>Comprehensive sales analysis and reporting template with performance metrics and KPIs.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Shipment Logistics</h3>
+                        <p>Shipment tracking and logistics management system with delivery optimization and cost analysis.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Insurance Analysis</h3>
+                        <p>Insurance data analysis with SmartArt graphics and comprehensive risk assessment tools.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Physical Therapy Codes</h3>
+                        <p>Physical therapy billing codes and tracking system with automated calculations and reporting.</p>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i>
+                            Download Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coming Soon Sections -->
+        <div id="tableau-projects" class="projects-section" style="display: none;">
+            <h2 class="section-title">Tableau Projects</h2>
+            <div class="coming-soon">
+                <i class="fas fa-chart-line"></i>
+                <h3>Coming Soon</h3>
+                <p>Interactive Tableau dashboards and visualizations will be available here soon.</p>
+            </div>
+        </div>
+
+        <div id="r-projects" class="projects-section" style="display: none;">
+            <h2 class="section-title">R Projects</h2>
+            <div class="coming-soon">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Coming Soon</h3>
+                <p>Statistical analysis and data science projects using R will be available here soon.</p>
+            </div>
+        </div>
+
+        <div id="python-projects" class="projects-section" style="display: none;">
+            <h2 class="section-title">Python Projects</h2>
+            <div class="coming-soon">
+                <i class="fab fa-python"></i>
+                <h3>Coming Soon</h3>
+                <p>Data analysis and machine learning projects using Python will be available here soon.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>josephkorman79@gmail.com</p>
+                <p>Ready to collaborate on your next project</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="business-analytics.html">Business Analytics</a>
+                    <a href="video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function filterProjects(category) {
+            // Hide all project sections
+            const sections = document.querySelectorAll('.projects-section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected section and activate button
+            document.getElementById(category + '-projects').style.display = 'block';
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

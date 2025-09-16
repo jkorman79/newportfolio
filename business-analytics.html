@@ -44,11 +44,11 @@
 
         <!-- Software Categories -->
         <div class="software-categories">
-            <button class="category-button active" onclick="filterProjects('excel')">
+            <button class="category-button active" onclick="filterProjects('excel', this)">
                 <i class="fas fa-file-excel"></i>
                 Excel
             </button>
-            <button class="category-button" onclick="filterProjects('sql')">
+            <button class="category-button" onclick="filterProjects('sql', this)">
                 <i class="fas fa-database"></i>
                 SQL
             </button>
@@ -409,7 +409,7 @@
 
     <script src="script.js"></script>
     <script>
-        function filterProjects(category) {
+        function filterProjects(category, buttonElement) {
             // Hide all project sections
             const sections = document.querySelectorAll('.projects-section');
             sections.forEach(section => section.style.display = 'none');
@@ -420,7 +420,7 @@
             
             // Show selected section and activate button
             document.getElementById(category + '-projects').style.display = 'block';
-            event.target.classList.add('active');
+            buttonElement.classList.add('active');
         }
 
         function filterProjectTypes(type) {

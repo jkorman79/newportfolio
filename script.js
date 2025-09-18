@@ -75,87 +75,48 @@ function filterVideos(category) {
     });
 }
 
-// Video modal functionality
-function openVideoModal(videoUrl) {
-    // Create modal overlay
-    const modal = document.createElement('div');
-    modal.className = 'video-modal';
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
-        cursor: pointer;
-    `;
+// Inline video embed functionality (replaces modal)
+function buildAutoplayEmbedUrl(originalUrl) {
+    if (!originalUrl) return '';
+    let url = new URL(originalUrl, window.location.href);
+    // Ensure autoplay is enabled and related videos minimized
+    if (url.hostname.includes('youtube.com')) {
+        if (!url.searchParams.has('autoplay')) url.searchParams.set('autoplay', '1');
+        if (!url.searchParams.has('rel')) url.searchParams.set('rel', '0');
+    } else if (url.hostname.includes('vimeo.com')) {
+        if (!url.searchParams.has('autoplay')) url.searchParams.set('autoplay', '1');
+    } else {
+        // Generic: append autoplay=1 if safe
+        if (!url.searchParams.has('autoplay')) url.searchParams.set('autoplay', '1');
+    }
+    return url.toString();
+}
+
+function playInlineInThumbnail(thumbnail) {
+    const videoUrl = thumbnail.getAttribute('data-video-url');
+    if (!videoUrl) return;
     
-    // Create video container
-    const videoContainer = document.createElement('div');
-    videoContainer.style.cssText = `
-        position: relative;
-        width: 90%;
-        max-width: 800px;
-        aspect-ratio: 16/9;
-        background: #000;
-        border-radius: 10px;
-        overflow: hidden;
-    `;
+    // Prevent duplicate embeds
+    if (thumbnail.dataset.playing === 'true') return;
+    thumbnail.dataset.playing = 'true';
     
-    // Create iframe
+    // Clear existing content (image + play button)
+    while (thumbnail.firstChild) thumbnail.removeChild(thumbnail.firstChild);
+    
+    // Create iframe embed
     const iframe = document.createElement('iframe');
-    iframe.src = videoUrl;
+    iframe.src = buildAutoplayEmbedUrl(videoUrl);
     iframe.style.cssText = `
         width: 100%;
         height: 100%;
         border: none;
+        background: #000000;
     `;
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
     iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('title', 'Embedded video');
     
-    // Create close button
-    const closeBtn = document.createElement('button');
-    closeBtn.innerHTML = '×';
-    closeBtn.style.cssText = `
-        position: absolute;
-        top: -40px;
-        right: 0;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        padding: 0;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    `;
-    
-    // Assemble modal
-    videoContainer.appendChild(iframe);
-    videoContainer.appendChild(closeBtn);
-    modal.appendChild(videoContainer);
-    document.body.appendChild(modal);
-    
-    // Close modal functionality
-    function closeModal() {
-        document.body.removeChild(modal);
-    }
-    
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeModal();
-    });
+    thumbnail.appendChild(iframe);
 }
 
 // Add click handlers to video thumbnails and handle thumbnail fallbacks
@@ -164,7 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
     videoThumbnails.forEach(thumbnail => {
         const videoUrl = thumbnail.getAttribute('data-video-url');
         if (videoUrl) {
-            thumbnail.addEventListener('click', () => openVideoModal(videoUrl));
+            thumbnail.addEventListener('click', (e) => {
+                // Allow clicking the button or image to play inline
+                e.preventDefault();
+                playInlineInThumbnail(thumbnail);
+            });
         }
         
         // Handle thumbnail fallbacks

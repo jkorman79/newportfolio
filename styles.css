@@ -684,6 +684,12 @@ body {
     z-index: 2;
 }
 
+.video-thumbnail iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 .video-thumbnail img[src*="data:image/svg"] {
     background-color: #e5e7eb;
     display: flex;

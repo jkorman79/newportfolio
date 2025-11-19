@@ -163,6 +163,10 @@ body {
 
 .hero-text {
     text-align: left;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
 }
 
 .hero-title {

@@ -1146,6 +1146,91 @@ html {
     gap: 1rem;
     justify-content: center;
     margin-bottom: 3rem;
+    align-items: center;
+}
+
+.category-with-cert {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.certifications-button {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.certifications-button:hover,
+.certifications-button.active {
+    background: #7c3aed;
+    color: white;
+    border-color: #7c3aed;
+}
+
+.all-projects-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* Project Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 2rem 0.5rem;
+}
+
+.project-tag {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+}
+
+/* Tag Colors */
+.tag-excel {
+    background-color: #16a34a; /* Green */
+}
+
+.tag-tableau {
+    background-color: #9333ea; /* Purple */
+}
+
+.tag-sql {
+    background-color: #6b7280; /* Gray */
+}
+
+.tag-python {
+    background-color: #ea580c; /* Orange */
+}
+
+.tag-r {
+    background-color: #2563eb; /* Blue */
+}
+
+.tag-spss {
+    background-color: #ffffff; /* White */
+    color: #333;
+    border: 1px solid #e5e7eb;
+}
+
+.tag-cursor {
+    background-color: #000000; /* Black */
 }
 
 .project-type-filter {

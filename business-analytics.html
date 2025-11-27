@@ -42,316 +42,138 @@
     <!-- Page Content -->
     <main class="page-content">
 
+        <!-- All Projects Button -->
+        <div class="all-projects-button-container">
+            <button class="category-button active" onclick="filterByTag('all', this)">
+                <i class="fas fa-th-large"></i>
+                All Projects
+            </button>
+        </div>
+
         <!-- Software Categories -->
         <div class="software-categories">
-            <button class="category-button active" onclick="filterProjects('excel', this)">
+            <button class="category-button" onclick="filterByTag('excel', this)">
                 <i class="fas fa-file-excel"></i>
                 Excel
             </button>
-            <button class="category-button" onclick="filterProjects('sql', this)">
-                <i class="fas fa-database"></i>
-                SQL
-            </button>
-            <button class="category-button" onclick="filterProjects('python', this)">
-                <i class="fab fa-python"></i>
-                Python
-            </button>
-        </div>
-
-        <!-- Excel Projects -->
-        <div id="excel-projects" class="projects-section">
-            <h2 class="section-title">Excel Projects</h2>
-            
-            <!-- Project Type Filter -->
-            <div class="project-type-filter">
-                <button class="filter-button active" onclick="filterProjectTypes('all')">
-                    <i class="fas fa-th-large"></i>
-                    All Projects
+            <div class="category-with-cert">
+                <button class="category-button" onclick="filterByTag('sql', this)">
+                    <i class="fas fa-database"></i>
+                    SQL
                 </button>
-                <button class="filter-button" onclick="filterProjectTypes('independent')">
-                    <i class="fas fa-user"></i>
-                    Independent Projects
-                </button>
-                <button class="filter-button" onclick="filterProjectTypes('business')">
-                    <i class="fas fa-briefcase"></i>
-                    Business Projects
+                <button class="certifications-button" onclick="filterByTag('sql-certifications', this, event)">
+                    <i class="fas fa-certificate"></i>
+                    Certifications
                 </button>
             </div>
-            
-            <div class="project-subsection" data-project-type="independent">
-                <h3 class="subsection-title">Independent Excel Projects</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Budget-thumb.jpg" alt="Yearly Budget Project">
-                        </div>
-                        <h3>Yearly Budget</h3>
-                        <p>Personal yearly budget tracking and planning spreadsheet with automated calculations and visual charts.</p>
-                        <a href="assets/documents/excel-projects/Yearly Budget copy.xltx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Template
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/job-apps-thumb.png" alt="Job Application Record Project">
-                        </div>
-                        <h3>Job Application Record</h3>
-                        <p>Comprehensive tracking system for job applications with status updates and follow-up reminders.</p>
-                        <a href="assets/documents/excel-projects/Job Application Record copy.xltx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Template
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/standings-thumb.jpg" alt="Sports Standings Project">
-                        </div>
-                        <h3>Sports Standings</h3>
-                        <p>Sports team standings and statistics tracking spreadsheet. Useful for anyone in need of standings for their league.</p>
-                        <a href="assets/documents/excel-projects/Sports Standings copy.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Template
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Leining-thumb.jpg" alt="Leining Record Project">
-                        </div>
-                        <h3>Leining Record</h3>
-                        <p>Track your Torah learning progress with check marks and view statistics based on your progress.</p>
-                        <a href="assets/documents/excel-projects/Leining Record copy.xltx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Template
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Exams-thumb.jpg" alt="Grade Yourself Project">
-                        </div>
-                        <h3>Grade Yourself</h3>
-                        <p>Got a multiple-choice exam coming up? Use this sheet to test yourself on the material and see your grade.</p>
-                        <a href="assets/documents/excel-projects/Exam Grading copy.xltx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Template
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/pages-thumb.jpg" alt="Page Numbers: Koren Project">
-                        </div>
-                        <h3>Page Numbers: Koren</h3>
-                        <p>Reference list of what page the various Torah portions begin in both the Koren Chumash and the Koren Shabbat Siddur.</p>
-                        <a href="assets/documents/excel-projects/Page Numbers - JLIC copy.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Template
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-subsection" data-project-type="business">
-                <h3 class="subsection-title">Business Excel Projects</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Residence-thumb.jpg" alt="Residence Pivot Table Project">
-                        </div>
-                        <h3>Residence Pivot Table</h3>
-                        <p>Residence data analysis using pivot tables to identify trends and patterns in housing data.</p>
-                        <a href="assets/documents/excel-projects/Residence Pivot Table.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Klapore-thumb.jpg" alt="Klapore Salary Report Project">
-                        </div>
-                        <h3>Klapore Salary Report</h3>
-                        <p>Comprehensive salary analysis and reporting system with statistical analysis and visualizations.</p>
-                        <a href="assets/documents/excel-projects/Klapore Salary Report.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Frangold-thumb.jpg" alt="Frangold Real Estate Budget Project">
-                        </div>
-                        <h3>Frangold Real Estate Budget</h3>
-                        <p>Real estate investment budget and financial planning spreadsheet with ROI calculations.</p>
-                        <a href="assets/documents/excel-projects/Frangold Real Estate Budget.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Manola-thumb.jpg" alt="Manola Financial Projection Project">
-                        </div>
-                        <h3>Manola Financial Projection</h3>
-                        <p>Financial projection and analysis system for business planning with scenario modeling.</p>
-                        <a href="assets/documents/excel-projects/Manola Financial Projection.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/airport-thumb.jpg" alt="Airport Revenue Project">
-                        </div>
-                        <h3>Airport Revenue</h3>
-                        <p>Comprehensive airport revenue tracking and analysis system with performance metrics.</p>
-                        <a href="assets/documents/excel-projects/Airport Revenue.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Bank-thumb.jpg" alt="Bank Account Managers Project">
-                        </div>
-                        <h3>Bank Account Managers</h3>
-                        <p>Bank account management and tracking system with automated calculations and reporting.</p>
-                        <a href="assets/documents/excel-projects/Bank Account Managers.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Billable-thumb.jpg" alt="Billable History Project">
-                        </div>
-                        <h3>Billable History</h3>
-                        <p>Track and analyze billable hours and project history with detailed reporting features.</p>
-                        <a href="assets/documents/excel-projects/Billable History.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Budget-plan-thumb.jpg" alt="Budget Planning Project">
-                        </div>
-                        <h3>Budget Planning</h3>
-                        <p>Comprehensive budget planning and tracking system with variance analysis and forecasting.</p>
-                        <a href="assets/documents/excel-projects/Budget Planning.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Consolidated-thumb.jpg" alt="Consolidated Expenses Project">
-                        </div>
-                        <h3>Consolidated Expenses</h3>
-                        <p>Track and analyze consolidated business expenses with categorization and trend analysis.</p>
-                        <a href="assets/documents/excel-projects/Consolidated Expenses.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Loan-thumb.jpg" alt="Loan Payment Calculator Project">
-                        </div>
-                        <h3>Loan Payment Calculator</h3>
-                        <p>Calculate and analyze loan payments and schedules with amortization tables and scenarios.</p>
-                        <a href="assets/documents/excel-projects/Loan Payment Calculator.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Mortgage-thumb.jpg" alt="Mortgage Payment Calculator Project">
-                        </div>
-                        <h3>Mortgage Payment Calculator</h3>
-                        <p>Calculate and analyze mortgage payments and schedules with detailed financial breakdowns.</p>
-                        <a href="assets/documents/excel-projects/Mortgage Payment Calculator.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/payroll-thumb.jpg" alt="Annual Payroll Project">
-                        </div>
-                        <h3>Annual Payroll</h3>
-                        <p>Annual payroll tracking and analysis system with tax calculations and reporting.</p>
-                        <a href="assets/documents/excel-projects/Annual Payroll.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Restaurant-thumb.jpg" alt="Restaurant Supply Project">
-                        </div>
-                        <h3>Restaurant Supply</h3>
-                        <p>Restaurant supply chain and inventory management system with cost tracking and optimization.</p>
-                        <a href="assets/documents/excel-projects/Restaurant Supply.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Sales-thumb.jpg" alt="Sales Analysis Template Project">
-                        </div>
-                        <h3>Sales Analysis Template</h3>
-                        <p>Comprehensive sales analysis and reporting template with performance metrics and KPIs.</p>
-                        <a href="assets/documents/excel-projects/Sales Analysis Template.xltx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Shipment-thumb.jpg" alt="Shipment Logistics Project">
-                        </div>
-                        <h3>Shipment Logistics</h3>
-                        <p>Shipment tracking and logistics management system with delivery optimization and cost analysis.</p>
-                        <a href="assets/documents/excel-projects/Shipment Logistics.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Smartart-thumb.jpg" alt="Insurance Analysis Project">
-                        </div>
-                        <h3>Insurance Analysis</h3>
-                        <p>Insurance data analysis with SmartArt graphics and comprehensive risk assessment tools.</p>
-                        <a href="assets/documents/excel-projects/Insurance Analysis and SmartArt Graphic.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/Therapy-thumb.jpg" alt="Physical Therapy Codes Project">
-                        </div>
-                        <h3>Physical Therapy Codes</h3>
-                        <p>Physical therapy billing codes and tracking system with automated calculations and reporting.</p>
-                        <a href="assets/documents/excel-projects/Physical Therapy Codes.xlsx" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                            Download Project
-                        </a>
-                    </div>
-                </div>
+            <div class="category-with-cert">
+                <button class="category-button" onclick="filterByTag('python', this)">
+                    <i class="fab fa-python"></i>
+                    Python
+                </button>
+                <button class="certifications-button" onclick="filterByTag('python-certifications', this, event)">
+                    <i class="fas fa-certificate"></i>
+                    Certifications
+                </button>
             </div>
         </div>
 
-        <!-- SQL Certifications -->
-        <div id="sql-projects" class="projects-section" style="display: none;">
-            <h2 class="section-title">SQL Certifications</h2>
-            
+        <!-- All Projects Section -->
+        <div id="all-projects" class="projects-section">
             <div class="projects-grid">
-                <div class="project-card">
+                <!-- Excel Projects -->
+                <div class="project-card" data-tags="excel">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Budget-thumb.jpg" alt="Yearly Budget Project">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <h3>Yearly Budget</h3>
+                    <p>Personal yearly budget tracking and planning spreadsheet with automated calculations and visual charts.</p>
+                    <a href="assets/documents/excel-projects/Yearly Budget copy.xltx" class="download-link" download>
+                        <i class="fas fa-download"></i>
+                        Download Template
+                    </a>
+                </div>
+                <div class="project-card" data-tags="excel">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/job-apps-thumb.png" alt="Job Application Record Project">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <h3>Job Application Record</h3>
+                    <p>Comprehensive tracking system for job applications with status updates and follow-up reminders.</p>
+                    <a href="assets/documents/excel-projects/Job Application Record copy.xltx" class="download-link" download>
+                        <i class="fas fa-download"></i>
+                        Download Template
+                    </a>
+                </div>
+                <div class="project-card" data-tags="excel">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/standings-thumb.jpg" alt="Sports Standings Project">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <h3>Sports Standings</h3>
+                    <p>Sports team standings and statistics tracking spreadsheet. Useful for anyone in need of standings for their league.</p>
+                    <a href="assets/documents/excel-projects/Sports Standings copy.xlsx" class="download-link" download>
+                        <i class="fas fa-download"></i>
+                        Download Template
+                    </a>
+                </div>
+                <div class="project-card" data-tags="excel">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Leining-thumb.jpg" alt="Leining Record Project">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <h3>Leining Record</h3>
+                    <p>Track your Torah learning progress with check marks and view statistics based on your progress.</p>
+                    <a href="assets/documents/excel-projects/Leining Record copy.xltx" class="download-link" download>
+                        <i class="fas fa-download"></i>
+                        Download Template
+                    </a>
+                </div>
+                <div class="project-card" data-tags="excel">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Exams-thumb.jpg" alt="Grade Yourself Project">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <h3>Grade Yourself</h3>
+                    <p>Got a multiple-choice exam coming up? Use this sheet to test yourself on the material and see your grade.</p>
+                    <a href="assets/documents/excel-projects/Exam Grading copy.xltx" class="download-link" download>
+                        <i class="fas fa-download"></i>
+                        Download Template
+                    </a>
+                </div>
+                <div class="project-card" data-tags="excel">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/pages-thumb.jpg" alt="Page Numbers: Koren Project">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <h3>Page Numbers: Koren</h3>
+                    <p>Reference list of what page the various Torah portions begin in both the Koren Chumash and the Koren Shabbat Siddur.</p>
+                    <a href="assets/documents/excel-projects/Page Numbers - JLIC copy.xlsx" class="download-link" download>
+                        <i class="fas fa-download"></i>
+                        Download Template
+                    </a>
+                </div>
+
+                <!-- SQL Certifications -->
+                <div class="project-card" data-tags="sql sql-certifications">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/SQL for BA Completion copy.jpg" alt="SQL for Business Analysts Certificate">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
                     </div>
                     <h3>SQL for Business Analysts</h3>
                     <p>DataCamp certification demonstrating proficiency in SQL for business analysis, including data manipulation, aggregation, and reporting.</p>
@@ -360,9 +182,12 @@
                         View Certificate
                     </a>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-tags="sql sql-certifications">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/SQL Joins Certificate of COmpletion copy.jpg" alt="SQL Joins Certificate">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
                     </div>
                     <h3>SQL Joins</h3>
                     <p>DataCamp certification showcasing expertise in SQL joins, including inner, outer, left, and right joins for complex data relationships.</p>
@@ -371,17 +196,14 @@
                         View Certificate
                     </a>
                 </div>
-            </div>
-        </div>
 
-        <!-- Python Certifications -->
-        <div id="python-projects" class="projects-section" style="display: none;">
-            <h2 class="section-title">Python Certifications</h2>
-            
-            <div class="projects-grid">
-                <div class="project-card">
+                <!-- Python Certifications -->
+                <div class="project-card" data-tags="python python-certifications">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Python_AI_Thumb.png" alt="AI Python for Beginners Certificate">
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag tag-python">Python</span>
                     </div>
                     <h3>AI Python for Beginners</h3>
                     <p>DeepLearning.AI course credential demonstrating foundational Python skills for AI-assisted development.</p>
@@ -432,44 +254,62 @@
 
     <script src="script.js"></script>
     <script>
-        function filterProjects(category, buttonElement) {
-            // Hide all project sections
-            const sections = document.querySelectorAll('.projects-section');
-            sections.forEach(section => section.style.display = 'none');
-            
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.category-button');
-            buttons.forEach(button => button.classList.remove('active'));
-            
-            // Show selected section and activate button
-            document.getElementById(category + '-projects').style.display = 'block';
-            buttonElement.classList.add('active');
-        }
+        function filterByTag(tag, buttonElement, event) {
+            // Prevent event bubbling if it's a certifications button
+            if (event) {
+                event.stopPropagation();
+            }
 
-        function filterProjectTypes(type) {
-            const subsections = document.querySelectorAll('.project-subsection');
-            const filterButtons = document.querySelectorAll('.filter-button');
-            
-            // Remove active class from all filter buttons
-            filterButtons.forEach(button => button.classList.remove('active'));
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
-            
-            // Show/hide subsections based on filter
-            subsections.forEach(subsection => {
-                const projectType = subsection.getAttribute('data-project-type');
-                
-                if (type === 'all') {
-                    subsection.style.display = 'block';
-                } else if (projectType === type) {
-                    subsection.style.display = 'block';
-                } else {
-                    subsection.style.display = 'none';
-                }
-            });
+            // Remove active class from all category buttons and certifications buttons
+            const allCategoryButtons = document.querySelectorAll('.category-button');
+            const allCertButtons = document.querySelectorAll('.certifications-button');
+            allCategoryButtons.forEach(button => button.classList.remove('active'));
+            allCertButtons.forEach(button => button.classList.remove('active'));
+
+            // Get all project cards
+            const projectCards = document.querySelectorAll('.project-card');
+
+            if (tag === 'all') {
+                // Show all projects
+                projectCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'sql-certifications') {
+                // Show only SQL certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('sql-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'python-certifications') {
+                // Show only Python certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('python-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else {
+                // Filter by tag (excel, sql, python) - show all projects with that tag, including certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes(tag)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            }
         }
     </script>
 </body>
 </html>
-

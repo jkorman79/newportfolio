@@ -43,33 +43,33 @@
     <main class="page-content">
 
         <!-- Software Categories -->
-        <div class="software-categories">
-            <button class="category-button active" onclick="filterByTag('all', this)">
-                <i class="fas fa-th-large"></i>
-                All Projects
-            </button>
-            <button class="category-button" onclick="filterByTag('excel', this)">
-                <i class="fas fa-file-excel"></i>
-                Excel
-            </button>
-            <div class="category-with-cert">
+        <div class="software-categories-container">
+            <div class="software-categories">
+                <button class="category-button active" onclick="filterByTag('all', this)">
+                    <i class="fas fa-th-large"></i>
+                    All Projects
+                </button>
+                <button class="category-button" onclick="filterByTag('excel', this)">
+                    <i class="fas fa-file-excel"></i>
+                    Excel
+                </button>
                 <button class="category-button" onclick="filterByTag('sql', this)">
                     <i class="fas fa-database"></i>
                     SQL
                 </button>
-                <button class="certifications-button" id="sql-cert-button" onclick="filterByTag('sql-certifications', this, event)" style="display: none;">
-                    <i class="fas fa-certificate"></i>
-                    Certifications
-                </button>
-            </div>
-            <div class="category-with-cert">
                 <button class="category-button" onclick="filterByTag('python', this)">
                     <i class="fab fa-python"></i>
                     Python
                 </button>
-                <button class="certifications-button" id="python-cert-button" onclick="filterByTag('python-certifications', this, event)" style="display: none;">
+            </div>
+            <div class="certifications-row" id="certifications-row" style="display: none;">
+                <button class="certifications-button" id="sql-cert-button" onclick="filterByTag('sql-certifications', this, event)">
                     <i class="fas fa-certificate"></i>
-                    Certifications
+                    SQL Certifications
+                </button>
+                <button class="certifications-button" id="python-cert-button" onclick="filterByTag('python-certifications', this, event)">
+                    <i class="fas fa-certificate"></i>
+                    Python Certifications
                 </button>
             </div>
         </div>
@@ -262,21 +262,23 @@
             allCategoryButtons.forEach(button => button.classList.remove('active'));
             allCertButtons.forEach(button => button.classList.remove('active'));
 
-            // Get certifications buttons
+            // Get certifications row
+            const certificationsRow = document.getElementById('certifications-row');
             const sqlCertButton = document.getElementById('sql-cert-button');
             const pythonCertButton = document.getElementById('python-cert-button');
 
-            // Show/hide certifications buttons based on selected tag
+            // Show/hide certifications row based on selected tag
             if (tag === 'sql') {
+                certificationsRow.style.display = 'flex';
                 sqlCertButton.style.display = 'flex';
                 pythonCertButton.style.display = 'none';
             } else if (tag === 'python') {
+                certificationsRow.style.display = 'flex';
                 sqlCertButton.style.display = 'none';
                 pythonCertButton.style.display = 'flex';
             } else {
-                // Hide certifications buttons for 'all' or 'excel' or certifications views
-                sqlCertButton.style.display = 'none';
-                pythonCertButton.style.display = 'none';
+                // Hide certifications row for 'all' or 'excel' or certifications views
+                certificationsRow.style.display = 'none';
             }
 
             // Get all project cards

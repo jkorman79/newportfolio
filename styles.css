@@ -1140,28 +1140,32 @@ html {
 }
 
 /* Additional Styles for New Elements */
+.software-categories-container {
+    margin-bottom: 3rem;
+}
+
 .software-categories {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-    margin-bottom: 3rem;
     align-items: center;
 }
 
-.category-with-cert {
+.certifications-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
     align-items: center;
-    position: relative;
+    margin-top: 1rem;
 }
 
 .certifications-button {
     background: #f3f4f6;
     color: #374151;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -1170,7 +1174,7 @@ html {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     white-space: nowrap;
 }
 

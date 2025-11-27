@@ -384,10 +384,10 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'python-projects') {
-                // Show only Python projects
+                // Show all projects with Python tag (excluding certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
-                    if (cardTags.includes('python-projects')) {
+                    if (cardTags.includes('python') && !cardTags.includes('python-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -395,10 +395,10 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'excel-projects') {
-                // Show only Excel projects
+                // Show all projects with Excel tag (excluding templates)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
-                    if (cardTags.includes('excel-projects')) {
+                    if (cardTags.includes('excel') && !cardTags.includes('excel-templates')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

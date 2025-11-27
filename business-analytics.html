@@ -414,10 +414,10 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'excel-projects') {
-                // Show all projects with Excel tag (excluding templates)
+                // Show all projects with Excel tag (excluding templates and certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
-                    if (cardTags.includes('excel') && !cardTags.includes('excel-templates')) {
+                    if (cardTags.includes('excel') && !cardTags.includes('excel-templates') && !cardTags.includes('excel-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

@@ -42,16 +42,12 @@
     <!-- Page Content -->
     <main class="page-content">
 
-        <!-- All Projects Button -->
-        <div class="all-projects-button-container">
+        <!-- Software Categories -->
+        <div class="software-categories">
             <button class="category-button active" onclick="filterByTag('all', this)">
                 <i class="fas fa-th-large"></i>
                 All Projects
             </button>
-        </div>
-
-        <!-- Software Categories -->
-        <div class="software-categories">
             <button class="category-button" onclick="filterByTag('excel', this)">
                 <i class="fas fa-file-excel"></i>
                 Excel
@@ -61,7 +57,7 @@
                     <i class="fas fa-database"></i>
                     SQL
                 </button>
-                <button class="certifications-button" onclick="filterByTag('sql-certifications', this, event)">
+                <button class="certifications-button" id="sql-cert-button" onclick="filterByTag('sql-certifications', this, event)" style="display: none;">
                     <i class="fas fa-certificate"></i>
                     Certifications
                 </button>
@@ -71,7 +67,7 @@
                     <i class="fab fa-python"></i>
                     Python
                 </button>
-                <button class="certifications-button" onclick="filterByTag('python-certifications', this, event)">
+                <button class="certifications-button" id="python-cert-button" onclick="filterByTag('python-certifications', this, event)" style="display: none;">
                     <i class="fas fa-certificate"></i>
                     Certifications
                 </button>
@@ -86,11 +82,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Budget-thumb.jpg" alt="Yearly Budget Project">
                     </div>
+                    <h3>Yearly Budget</h3>
+                    <p>Personal yearly budget tracking and planning spreadsheet with automated calculations and visual charts.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
-                    <h3>Yearly Budget</h3>
-                    <p>Personal yearly budget tracking and planning spreadsheet with automated calculations and visual charts.</p>
                     <a href="assets/documents/excel-projects/Yearly Budget copy.xltx" class="download-link" download>
                         <i class="fas fa-download"></i>
                         Download Template
@@ -100,11 +96,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/job-apps-thumb.png" alt="Job Application Record Project">
                     </div>
+                    <h3>Job Application Record</h3>
+                    <p>Comprehensive tracking system for job applications with status updates and follow-up reminders.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
-                    <h3>Job Application Record</h3>
-                    <p>Comprehensive tracking system for job applications with status updates and follow-up reminders.</p>
                     <a href="assets/documents/excel-projects/Job Application Record copy.xltx" class="download-link" download>
                         <i class="fas fa-download"></i>
                         Download Template
@@ -114,11 +110,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/standings-thumb.jpg" alt="Sports Standings Project">
                     </div>
+                    <h3>Sports Standings</h3>
+                    <p>Sports team standings and statistics tracking spreadsheet. Useful for anyone in need of standings for their league.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
-                    <h3>Sports Standings</h3>
-                    <p>Sports team standings and statistics tracking spreadsheet. Useful for anyone in need of standings for their league.</p>
                     <a href="assets/documents/excel-projects/Sports Standings copy.xlsx" class="download-link" download>
                         <i class="fas fa-download"></i>
                         Download Template
@@ -128,11 +124,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Leining-thumb.jpg" alt="Leining Record Project">
                     </div>
+                    <h3>Leining Record</h3>
+                    <p>Track your Torah learning progress with check marks and view statistics based on your progress.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
-                    <h3>Leining Record</h3>
-                    <p>Track your Torah learning progress with check marks and view statistics based on your progress.</p>
                     <a href="assets/documents/excel-projects/Leining Record copy.xltx" class="download-link" download>
                         <i class="fas fa-download"></i>
                         Download Template
@@ -142,11 +138,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Exams-thumb.jpg" alt="Grade Yourself Project">
                     </div>
+                    <h3>Grade Yourself</h3>
+                    <p>Got a multiple-choice exam coming up? Use this sheet to test yourself on the material and see your grade.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
-                    <h3>Grade Yourself</h3>
-                    <p>Got a multiple-choice exam coming up? Use this sheet to test yourself on the material and see your grade.</p>
                     <a href="assets/documents/excel-projects/Exam Grading copy.xltx" class="download-link" download>
                         <i class="fas fa-download"></i>
                         Download Template
@@ -156,11 +152,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/pages-thumb.jpg" alt="Page Numbers: Koren Project">
                     </div>
+                    <h3>Page Numbers: Koren</h3>
+                    <p>Reference list of what page the various Torah portions begin in both the Koren Chumash and the Koren Shabbat Siddur.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
-                    <h3>Page Numbers: Koren</h3>
-                    <p>Reference list of what page the various Torah portions begin in both the Koren Chumash and the Koren Shabbat Siddur.</p>
                     <a href="assets/documents/excel-projects/Page Numbers - JLIC copy.xlsx" class="download-link" download>
                         <i class="fas fa-download"></i>
                         Download Template
@@ -172,11 +168,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/SQL for BA Completion copy.jpg" alt="SQL for Business Analysts Certificate">
                     </div>
+                    <h3>SQL for Business Analysts</h3>
+                    <p>DataCamp certification demonstrating proficiency in SQL for business analysis, including data manipulation, aggregation, and reporting.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-sql">SQL</span>
                     </div>
-                    <h3>SQL for Business Analysts</h3>
-                    <p>DataCamp certification demonstrating proficiency in SQL for business analysis, including data manipulation, aggregation, and reporting.</p>
                     <a href="assets/documents/certificates/SQL for Business Analysts Completion copy.pdf" class="download-link" download>
                         <i class="fas fa-download"></i>
                         View Certificate
@@ -186,11 +182,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/SQL Joins Certificate of COmpletion copy.jpg" alt="SQL Joins Certificate">
                     </div>
+                    <h3>SQL Joins</h3>
+                    <p>DataCamp certification showcasing expertise in SQL joins, including inner, outer, left, and right joins for complex data relationships.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-sql">SQL</span>
                     </div>
-                    <h3>SQL Joins</h3>
-                    <p>DataCamp certification showcasing expertise in SQL joins, including inner, outer, left, and right joins for complex data relationships.</p>
                     <a href="assets/documents/certificates/SQL Joins Certificate of Completion copy.pdf" class="download-link" download>
                         <i class="fas fa-download"></i>
                         View Certificate
@@ -202,11 +198,11 @@
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Python_AI_Thumb.png" alt="AI Python for Beginners Certificate">
                     </div>
+                    <h3>AI Python for Beginners</h3>
+                    <p>DeepLearning.AI course credential demonstrating foundational Python skills for AI-assisted development.</p>
                     <div class="project-tags">
                         <span class="project-tag tag-python">Python</span>
                     </div>
-                    <h3>AI Python for Beginners</h3>
-                    <p>DeepLearning.AI course credential demonstrating foundational Python skills for AI-assisted development.</p>
                     <a href="https://learn.deeplearning.ai/accomplishments/e12b8904-82b7-4bcf-a2b0-b0ba2bb3ec89?usp=sharing" class="download-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i>
                         View Credential
@@ -265,6 +261,23 @@
             const allCertButtons = document.querySelectorAll('.certifications-button');
             allCategoryButtons.forEach(button => button.classList.remove('active'));
             allCertButtons.forEach(button => button.classList.remove('active'));
+
+            // Get certifications buttons
+            const sqlCertButton = document.getElementById('sql-cert-button');
+            const pythonCertButton = document.getElementById('python-cert-button');
+
+            // Show/hide certifications buttons based on selected tag
+            if (tag === 'sql') {
+                sqlCertButton.style.display = 'flex';
+                pythonCertButton.style.display = 'none';
+            } else if (tag === 'python') {
+                sqlCertButton.style.display = 'none';
+                pythonCertButton.style.display = 'flex';
+            } else {
+                // Hide certifications buttons for 'all' or 'excel' or certifications views
+                sqlCertButton.style.display = 'none';
+                pythonCertButton.style.display = 'none';
+            }
 
             // Get all project cards
             const projectCards = document.querySelectorAll('.project-card');

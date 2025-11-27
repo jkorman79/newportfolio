@@ -72,6 +72,16 @@
                     Python Certifications
                 </button>
             </div>
+            <div class="certifications-row" id="excel-sub-buttons-row" style="display: none;">
+                <button class="certifications-button" id="excel-projects-button" onclick="filterByTag('excel-projects', this, event)">
+                    <i class="fas fa-folder-open"></i>
+                    Projects
+                </button>
+                <button class="certifications-button" id="excel-templates-button" onclick="filterByTag('excel-templates', this, event)">
+                    <i class="fas fa-file-alt"></i>
+                    Templates
+                </button>
+            </div>
         </div>
 
         <!-- All Projects Section -->
@@ -79,7 +89,7 @@
             <div class="projects-grid">
                 <!-- Excel Projects -->
                 <!-- DoorDash Marketing Analysis (Newest) -->
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-projects">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/DoorDashProjectThumbnail.png" alt="DoorDash Marketing Analysis Project">
                     </div>
@@ -140,7 +150,7 @@
                 </div>
 
                 <!-- Excel Projects (Reverse Chronological Order) -->
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/pages-thumb.jpg" alt="Page Numbers: Koren Project">
                     </div>
@@ -154,7 +164,7 @@
                         Download Template
                     </a>
                 </div>
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Exams-thumb.jpg" alt="Grade Yourself Project">
                     </div>
@@ -168,7 +178,7 @@
                         Download Template
                     </a>
                 </div>
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Leining-thumb.jpg" alt="Leining Record Project">
                     </div>
@@ -182,7 +192,7 @@
                         Download Template
                     </a>
                 </div>
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/standings-thumb.jpg" alt="Sports Standings Project">
                     </div>
@@ -196,7 +206,7 @@
                         Download Template
                     </a>
                 </div>
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/job-apps-thumb.png" alt="Job Application Record Project">
                     </div>
@@ -210,7 +220,7 @@
                         Download Template
                     </a>
                 </div>
-                <div class="project-card" data-tags="excel">
+                <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
                         <img src="assets/images/thumbnails/Budget-thumb.jpg" alt="Yearly Budget Project">
                     </div>
@@ -278,23 +288,32 @@
             allCategoryButtons.forEach(button => button.classList.remove('active'));
             allCertButtons.forEach(button => button.classList.remove('active'));
 
-            // Get certifications row
+            // Get certifications row and Excel sub-buttons row
             const certificationsRow = document.getElementById('certifications-row');
+            const excelSubButtonsRow = document.getElementById('excel-sub-buttons-row');
             const sqlCertButton = document.getElementById('sql-cert-button');
             const pythonCertButton = document.getElementById('python-cert-button');
+            const excelProjectsButton = document.getElementById('excel-projects-button');
+            const excelTemplatesButton = document.getElementById('excel-templates-button');
 
-            // Show/hide certifications row based on selected tag
+            // Show/hide certifications row and Excel sub-buttons row based on selected tag
             if (tag === 'sql') {
                 certificationsRow.style.display = 'flex';
+                excelSubButtonsRow.style.display = 'none';
                 sqlCertButton.style.display = 'flex';
                 pythonCertButton.style.display = 'none';
             } else if (tag === 'python') {
                 certificationsRow.style.display = 'flex';
+                excelSubButtonsRow.style.display = 'none';
                 sqlCertButton.style.display = 'none';
                 pythonCertButton.style.display = 'flex';
-            } else {
-                // Hide certifications row for 'all' or 'excel' or certifications views
+            } else if (tag === 'excel') {
                 certificationsRow.style.display = 'none';
+                excelSubButtonsRow.style.display = 'flex';
+            } else {
+                // Hide both rows for 'all' or certifications/projects/templates views
+                certificationsRow.style.display = 'none';
+                excelSubButtonsRow.style.display = 'none';
             }
 
             // Get all project cards
@@ -322,6 +341,28 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('python-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'excel-projects') {
+                // Show only Excel projects
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('excel-projects')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'excel-templates') {
+                // Show only Excel templates
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('excel-templates')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

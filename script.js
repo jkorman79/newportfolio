@@ -85,6 +85,9 @@ function buildAutoplayEmbedUrl(originalUrl) {
         if (!url.searchParams.has('rel')) url.searchParams.set('rel', '0');
     } else if (url.hostname.includes('vimeo.com')) {
         if (!url.searchParams.has('autoplay')) url.searchParams.set('autoplay', '1');
+    } else if (url.hostname.includes('loom.com')) {
+        // Loom embeds work as-is, no need to modify URL
+        return originalUrl;
     } else {
         // Generic: append autoplay=1 if safe
         if (!url.searchParams.has('autoplay')) url.searchParams.set('autoplay', '1');

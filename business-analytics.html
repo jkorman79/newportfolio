@@ -86,6 +86,10 @@
                     <i class="fas fa-file-alt"></i>
                     Templates
                 </button>
+                <button class="certifications-button" id="excel-cert-button" onclick="filterByTag('excel-certifications', this, event)">
+                    <i class="fas fa-certificate"></i>
+                    Certificates
+                </button>
             </div>
             </div>
             
@@ -126,6 +130,20 @@
                         View Project
                     </a>
                     </div>
+                <!-- Excel Certifications -->
+                <div class="project-card" data-tags="excel excel-certifications">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Excel Certificate Thumbnail.png" alt="Excel Certificate">
+                    </div>
+                    <h3>Excel Certificate</h3>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/67cb58d7b96946326f383665.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Show Credential
+                    </a>
+                </div>
                 <!-- Python Certifications -->
                 <div class="project-card" data-tags="python python-certifications">
                         <div class="project-thumbnail">
@@ -313,6 +331,7 @@
             const pythonProjectsButton = document.getElementById('python-projects-button');
             const excelProjectsButton = document.getElementById('excel-projects-button');
             const excelTemplatesButton = document.getElementById('excel-templates-button');
+            const excelCertButton = document.getElementById('excel-cert-button');
 
             // Get all category buttons
             const allCategoryButtons = document.querySelectorAll('.category-button');
@@ -340,7 +359,7 @@
                 // Activate Python category button
                 const pythonButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'python'"));
                 if (pythonButton) pythonButton.classList.add('active');
-            } else if (tag === 'excel' || tag === 'excel-projects' || tag === 'excel-templates') {
+            } else if (tag === 'excel' || tag === 'excel-projects' || tag === 'excel-templates' || tag === 'excel-certifications') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'flex';
                 // Activate Excel category button
@@ -410,6 +429,17 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('excel-templates')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'excel-certifications') {
+                // Show only Excel certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('excel-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

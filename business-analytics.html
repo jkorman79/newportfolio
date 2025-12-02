@@ -54,6 +54,10 @@
                 <i class="fas fa-file-excel"></i>
                 Excel
             </button>
+                <button class="category-button" onclick="filterByTag('tableau', this)">
+                <i class="fas fa-chart-bar"></i>
+                Tableau
+            </button>
                 <button class="category-button" onclick="filterByTag('sql', this)">
                 <i class="fas fa-database"></i>
                 SQL
@@ -96,8 +100,31 @@
         <!-- All Projects Section -->
         <div id="all-projects" class="projects-section">
                 <div class="projects-grid">
+                <!-- Tableau Projects -->
+                <!-- Massachusetts Education Dashboard (Newest) -->
+                <div class="project-card" data-tags="tableau">
+                    <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/16fe28b0fc4346048cb0292f22545914">
+                        <img src="https://cdn.loom.com/sessions/thumbnails/16fe28b0fc4346048cb0292f22545914-2fc430ac4fb37ce8-full-play.gif#t=0.1" alt="Massachusetts Education Dashboard">
+                        <button class="video-play"><i class="fas fa-play"></i></button>
+                    </div>
+                    <h3>Massachusetts Education Dashboard</h3>
+                    <p>An interactive Tableau dashboard analyzing graduation rates and college attendance across Massachusetts schools, providing insights into educational outcomes and trends.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-tableau">Tableau</span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin: 0 2rem 2rem; flex-wrap: wrap;">
+                        <a href="https://public.tableau.com/views/Book1_17646961065880/MassachusettsEducationOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="download-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Dashboard
+                        </a>
+                        <a href="https://www.loom.com/share/16fe28b0fc4346048cb0292f22545914" class="download-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-video"></i>
+                            Video Explanation
+                        </a>
+                    </div>
+                </div>
                 <!-- Excel Projects -->
-                <!-- Sandy Alcantara Dashboard (Newest) -->
+                <!-- Sandy Alcantara Dashboard -->
                 <div class="project-card" data-tags="python python-projects excel excel-projects cursor">
                     <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/9cb8d7f5591649fe98f7b6169f7eebfa">
                         <img src="https://cdn.loom.com/sessions/thumbnails/9cb8d7f5591649fe98f7b6169f7eebfa-e1954f17279320e2-full-play.gif#t=0.1" alt="Sandy Alcantara Dashboard Tutorial">
@@ -365,6 +392,12 @@
                 // Activate Excel category button
                 const excelButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'excel'"));
                 if (excelButton) excelButton.classList.add('active');
+            } else if (tag === 'tableau') {
+                certificationsRow.style.display = 'none';
+                excelSubButtonsRow.style.display = 'none';
+                // Activate Tableau category button
+                const tableauButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'tableau'"));
+                if (tableauButton) tableauButton.classList.add('active');
             } else {
                 // Hide both rows for 'all'
                 certificationsRow.style.display = 'none';

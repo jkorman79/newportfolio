@@ -54,9 +54,9 @@
                 <i class="fas fa-file-excel"></i>
                 Excel
             </button>
-                <button class="category-button" onclick="filterByTag('tableau', this)">
+                <button class="category-button" onclick="filterByTag('data-visualization', this)">
                 <i class="fas fa-chart-bar"></i>
-                Tableau
+                Data Visualization
             </button>
                 <button class="category-button" onclick="filterByTag('sql', this)">
                 <i class="fas fa-database"></i>
@@ -102,7 +102,7 @@
                 <div class="projects-grid">
                 <!-- Tableau Projects -->
                 <!-- Massachusetts Education Dashboard (Newest) -->
-                <div class="project-card" data-tags="tableau">
+                <div class="project-card" data-tags="tableau data-visualization">
                     <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/16fe28b0fc4346048cb0292f22545914">
                         <img src="https://cdn.loom.com/sessions/thumbnails/16fe28b0fc4346048cb0292f22545914-2fc430ac4fb37ce8-full-play.gif#t=0.1" alt="Massachusetts Education Dashboard">
                         <button class="video-play"><i class="fas fa-play"></i></button>
@@ -119,7 +119,7 @@
                         </div>
                 <!-- Excel Projects -->
                 <!-- Sandy Alcantara Dashboard -->
-                <div class="project-card" data-tags="python python-projects excel excel-projects cursor">
+                <div class="project-card" data-tags="python python-projects excel excel-projects cursor data-visualization">
                     <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/9cb8d7f5591649fe98f7b6169f7eebfa">
                         <img src="https://cdn.loom.com/sessions/thumbnails/9cb8d7f5591649fe98f7b6169f7eebfa-e1954f17279320e2-full-play.gif#t=0.1" alt="Sandy Alcantara Dashboard Tutorial">
                         <button class="video-play"><i class="fas fa-play"></i></button>
@@ -386,12 +386,12 @@
                 // Activate Excel category button
                 const excelButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'excel'"));
                 if (excelButton) excelButton.classList.add('active');
-            } else if (tag === 'tableau') {
+            } else if (tag === 'data-visualization') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'none';
-                // Activate Tableau category button
-                const tableauButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'tableau'"));
-                if (tableauButton) tableauButton.classList.add('active');
+                // Activate Data Visualization category button
+                const dataVizButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'data-visualization'"));
+                if (dataVizButton) dataVizButton.classList.add('active');
             } else {
                 // Hide both rows for 'all'
                 certificationsRow.style.display = 'none';

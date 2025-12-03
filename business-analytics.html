@@ -92,7 +92,13 @@
                 </button>
                 <button class="certifications-button" id="excel-cert-button" onclick="filterByTag('excel-certifications', this, event)">
                     <i class="fas fa-certificate"></i>
-                    Excel Certifications
+                    Certifications
+                </button>
+            </div>
+            <div class="certifications-row" id="data-visualization-sub-buttons-row" style="display: none;">
+                <button class="certifications-button" id="data-visualization-cert-button" onclick="filterByTag('data-visualization-certifications', this, event)">
+                    <i class="fas fa-certificate"></i>
+                    Data Visualization Certifications
                 </button>
             </div>
             </div>
@@ -154,13 +160,28 @@
                 <!-- Excel Certifications -->
                 <div class="project-card" data-tags="excel excel-certifications">
                         <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/Excel Certificate Thumbnail.png" alt="Excel Certificate">
+                        <img src="assets/images/thumbnails/Excel Certificate Thumbnail.png" alt="Excel Certification">
                         </div>
-                    <h3>Excel Certificate</h3>
+                    <h3>Excel Certification</h3>
                     <div class="project-tags">
                         <span class="project-tag tag-excel">Excel</span>
                     </div>
                     <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/67cb58d7b96946326f383665.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Show Credential
+                    </a>
+                </div>
+                <!-- Data Visualization Certifications -->
+                <!-- Tableau Certification -->
+                <div class="project-card" data-tags="tableau data-visualization data-visualization-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Tableau Certificate Thumb.png" alt="Tableau Certification">
+                        </div>
+                    <h3>Tableau Certification</h3>
+                    <div class="project-tags">
+                        <span class="project-tag tag-tableau">Tableau</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/66d77282ed408e6e4e7e8045.png" class="download-link" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-external-link-alt"></i>
                         Show Credential
                     </a>
@@ -347,12 +368,14 @@
             // Get certifications row and Excel sub-buttons row
             const certificationsRow = document.getElementById('certifications-row');
             const excelSubButtonsRow = document.getElementById('excel-sub-buttons-row');
+            const dataVizSubButtonsRow = document.getElementById('data-visualization-sub-buttons-row');
             const sqlCertButton = document.getElementById('sql-cert-button');
             const pythonCertButton = document.getElementById('python-cert-button');
             const pythonProjectsButton = document.getElementById('python-projects-button');
             const excelProjectsButton = document.getElementById('excel-projects-button');
             const excelTemplatesButton = document.getElementById('excel-templates-button');
             const excelCertButton = document.getElementById('excel-cert-button');
+            const dataVizCertButton = document.getElementById('data-visualization-cert-button');
 
             // Get all category buttons
             const allCategoryButtons = document.querySelectorAll('.category-button');
@@ -366,6 +389,7 @@
             if (tag === 'sql' || tag === 'sql-certifications') {
                 certificationsRow.style.display = 'flex';
                 excelSubButtonsRow.style.display = 'none';
+                dataVizSubButtonsRow.style.display = 'none';
                 sqlCertButton.style.display = 'flex';
                 pythonCertButton.style.display = 'none';
                 // Activate SQL category button
@@ -374,6 +398,7 @@
             } else if (tag === 'python' || tag === 'python-certifications' || tag === 'python-projects') {
                 certificationsRow.style.display = 'flex';
                 excelSubButtonsRow.style.display = 'none';
+                dataVizSubButtonsRow.style.display = 'none';
                 sqlCertButton.style.display = 'none';
                 pythonCertButton.style.display = 'flex';
                 pythonProjectsButton.style.display = 'flex';
@@ -383,12 +408,15 @@
             } else if (tag === 'excel' || tag === 'excel-projects' || tag === 'excel-templates' || tag === 'excel-certifications') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'flex';
+                dataVizSubButtonsRow.style.display = 'none';
                 // Activate Excel category button
                 const excelButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'excel'"));
                 if (excelButton) excelButton.classList.add('active');
-            } else if (tag === 'data-visualization') {
+            } else if (tag === 'data-visualization' || tag === 'data-visualization-certifications') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'none';
+                dataVizSubButtonsRow.style.display = 'flex';
+                pythonProjectsButton.style.display = 'none';
                 // Activate Data Visualization category button
                 const dataVizButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'data-visualization'"));
                 if (dataVizButton) dataVizButton.classList.add('active');
@@ -396,6 +424,7 @@
                 // Hide both rows for 'all'
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'none';
+                dataVizSubButtonsRow.style.display = 'none';
             }
 
             // Get all project cards
@@ -467,6 +496,17 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('excel-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'data-visualization-certifications') {
+                // Show only Data Visualization certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('data-visualization-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

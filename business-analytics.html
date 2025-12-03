@@ -96,9 +96,13 @@
                 </button>
             </div>
             <div class="certifications-row" id="data-visualization-sub-buttons-row" style="display: none;">
+                <button class="certifications-button" id="data-visualization-projects-button" onclick="filterByTag('data-visualization-projects', this, event)">
+                    <i class="fas fa-folder-open"></i>
+                    Projects
+                </button>
                 <button class="certifications-button" id="data-visualization-cert-button" onclick="filterByTag('data-visualization-certifications', this, event)">
                     <i class="fas fa-certificate"></i>
-                    Data Visualization Certifications
+                    Certifications
                 </button>
             </div>
             </div>
@@ -108,7 +112,7 @@
                 <div class="projects-grid">
                 <!-- Tableau Projects -->
                 <!-- Massachusetts Education Dashboard (Newest) -->
-                <div class="project-card" data-tags="tableau data-visualization">
+                <div class="project-card" data-tags="tableau data-visualization data-visualization-projects">
                     <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/16fe28b0fc4346048cb0292f22545914">
                         <img src="https://cdn.loom.com/sessions/thumbnails/16fe28b0fc4346048cb0292f22545914-2fc430ac4fb37ce8-full-play.gif#t=0.1" alt="Massachusetts Education Dashboard">
                         <button class="video-play"><i class="fas fa-play"></i></button>
@@ -125,7 +129,7 @@
                         </div>
                 <!-- Excel Projects -->
                 <!-- Sandy Alcantara Dashboard -->
-                <div class="project-card" data-tags="python python-projects excel excel-projects cursor data-visualization">
+                <div class="project-card" data-tags="python python-projects excel excel-projects cursor data-visualization data-visualization-projects">
                     <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/9cb8d7f5591649fe98f7b6169f7eebfa">
                         <img src="https://cdn.loom.com/sessions/thumbnails/9cb8d7f5591649fe98f7b6169f7eebfa-e1954f17279320e2-full-play.gif#t=0.1" alt="Sandy Alcantara Dashboard Tutorial">
                         <button class="video-play"><i class="fas fa-play"></i></button>
@@ -376,6 +380,7 @@
             const excelTemplatesButton = document.getElementById('excel-templates-button');
             const excelCertButton = document.getElementById('excel-cert-button');
             const dataVizCertButton = document.getElementById('data-visualization-cert-button');
+            const dataVizProjectsButton = document.getElementById('data-visualization-projects-button');
 
             // Get all category buttons
             const allCategoryButtons = document.querySelectorAll('.category-button');
@@ -412,7 +417,7 @@
                 // Activate Excel category button
                 const excelButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'excel'"));
                 if (excelButton) excelButton.classList.add('active');
-            } else if (tag === 'data-visualization' || tag === 'data-visualization-certifications') {
+            } else if (tag === 'data-visualization' || tag === 'data-visualization-certifications' || tag === 'data-visualization-projects') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'none';
                 dataVizSubButtonsRow.style.display = 'flex';
@@ -507,6 +512,17 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('data-visualization-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'data-visualization-projects') {
+                // Show all projects with Data Visualization tag (excluding certifications)
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('data-visualization') && !cardTags.includes('data-visualization-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

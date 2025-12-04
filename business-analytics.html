@@ -558,15 +558,16 @@
                 });
                 buttonElement.classList.add('active');
             } else {
-                // Filter by tag (excel, sql, python) - show all projects with that tag, including certifications
+                // Filter by tag (excel, sql, python, r) - show all projects with that tag, including certifications
                 projectCards.forEach(card => {
-                    const cardTags = card.getAttribute('data-tags');
-                    if (cardTags.includes(tag)) {
+                    const cardTags = card.getAttribute('data-tags') || '';
+                    const tagList = cardTags.split(/\s+/);
+                    if (tagList.includes(tag)) {
                         card.style.display = 'block';
-                } else {
+                    } else {
                         card.style.display = 'none';
-                }
-            });
+                    }
+                });
                 buttonElement.classList.add('active');
             }
         }

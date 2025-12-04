@@ -66,6 +66,10 @@
                 <i class="fab fa-python"></i>
                 Python
             </button>
+                <button class="category-button" onclick="filterByTag('r', this)">
+                <i class="fab fa-r-project"></i>
+                R
+            </button>
         </div>
             <div class="certifications-row" id="certifications-row" style="display: none;">
                 <button class="certifications-button" id="sql-cert-button" onclick="filterByTag('sql-certifications', this, event)">
@@ -110,8 +114,25 @@
         <!-- All Projects Section -->
         <div id="all-projects" class="projects-section">
                 <div class="projects-grid">
+                <!-- Employee Attrition Prevention Analysis (Newest) -->
+                <div class="project-card" data-tags="excel excel-projects r tableau data-visualization data-visualization-projects">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Attrition Article Cover Image.png" alt="Employee Attrition Prevention Analysis">
+                        </div>
+                    <h3>Employee Attrition Prevention Analysis</h3>
+                    <p>A comprehensive data mining project analyzing factors that lead to employee attrition and identifying strategies to prevent turnover. Using logistic regression and data visualization, this project reveals key insights about work-life balance, overtime, travel frequency, and demographic factors that impact employee retention.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                        <span class="project-tag tag-r">R</span>
+                        <span class="project-tag tag-tableau">Tableau</span>
+                    </div>
+                    <a href="https://www.linkedin.com/pulse/unpacking-attrition-patterns-predictions-prevention-joseph-korman-iq3gc/" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Project
+                    </a>
+                </div>
                 <!-- Tableau Projects -->
-                <!-- Massachusetts Education Dashboard (Newest) -->
+                <!-- Massachusetts Education Dashboard -->
                 <div class="project-card" data-tags="tableau data-visualization data-visualization-projects">
                     <div class="project-thumbnail video-thumbnail" data-video-url="https://www.loom.com/embed/16fe28b0fc4346048cb0292f22545914">
                         <img src="https://cdn.loom.com/sessions/thumbnails/16fe28b0fc4346048cb0292f22545914-2fc430ac4fb37ce8-full-play.gif#t=0.1" alt="Massachusetts Education Dashboard">
@@ -425,6 +446,13 @@
                 // Activate Data Visualization category button
                 const dataVizButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'data-visualization'"));
                 if (dataVizButton) dataVizButton.classList.add('active');
+            } else if (tag === 'r') {
+                certificationsRow.style.display = 'none';
+                excelSubButtonsRow.style.display = 'none';
+                dataVizSubButtonsRow.style.display = 'none';
+                // Activate R category button
+                const rButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'r'"));
+                if (rButton) rButton.classList.add('active');
             } else {
                 // Hide both rows for 'all'
                 certificationsRow.style.display = 'none';

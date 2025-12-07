@@ -573,6 +573,16 @@ body {
 
 .project-thumbnail img.certificate-thumb {
     object-fit: contain;
+    object-position: center;
+    background-color: #f8fafc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.project-thumbnail:has(.certificate-thumb) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f8fafc;
 }
 

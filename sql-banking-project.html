@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>World Bank SQL Analysis - Joseph Korman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.8;
+        }
+        .article-title-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        .article-content {
+            color: #333;
+        }
+        .article-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .article-content strong {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .article-content em {
+            font-style: italic;
+            color: #555;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .code-result-section {
+            margin: 2rem 0;
+        }
+        .code-result-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="video-production.html" class="nav-link">Video Production</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="page-content">
+        <div class="article-container">
+            <a href="business-analytics.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+            
+            <div class="article-content">
+                <img src="assets/images/In-Text Images/SQL Banking project/SQL Project Title Image.png" alt="World Bank SQL Analysis" class="article-title-image">
+                
+                <h1>Using SQL to analyze which countries receive the most funding and owe the most to the World Bank.</h1>
+                
+                <p>Growing up, I never imagined I'd be analyzing global bank funding data. Yet here I am, exploring which countries the World Bank invests in the most, and which ones owe the most in return. This project was a deep dive into global finance, international priorities, and surprising patterns hidden in over a million rows of data.</p>
+                
+                <h2>Why I Chose This Project</h2>
+                
+                <p>I wanted to simulate the role of a bank data analyst and practice SQL on a large, real-world dataset. The World Bank's funding decisions shape economies, influence development, and reveal a lot about global financial strategies. This project let me analyze that at scale and uncover fascinating insights that actually matter to people everywhere.</p>
+                
+                <p>By reading this, you will learn which countries receive the most funding, who owes the most, how regions compare, and the unexpected patterns that surfaced during analysis. If you're curious about global finance, SQL analytics, or large-scale datasets, this is the analysis for you!</p>
+                
+                <h2>About this Dataset</h2>
+                
+                <ul>
+                    <li><strong>Source:</strong> World Bank's IDA Statement of Credits, Grants, and Guarantees</li>
+                    <li><strong>Size:</strong> 1,488,150 rows</li>
+                    <li><strong>Coverage:</strong> 145 countries and economies</li>
+                    <li><strong>Currency:</strong> All values in this dataset were converted to US Dollars for convenience</li>
+                    <li><strong>Last Update:</strong> October 31, 2025</li>
+                </ul>
+                
+                <p>The dataset included variables such as original principal amounts, repayment statuses, regions, and financial classifications. It was the perfect playground for large-scale SQL queries, aggregations, and comparisons.</p>
+                
+                <h2>Key Findings</h2>
+                
+                <ul>
+                    <li>India and Bangladesh have the most individual records.</li>
+                    <li>India has received the most funding overall (which is likely because India appears the most often in the dataset)</li>
+                    <li>Ukraine owes the most per loan on average, despite having far fewer records than most other countries in the data.</li>
+                    <li>Ukraine has not repaid a single loan recorded here.</li>
+                    <li>South Asia and Africa are the two regions that have received the most funding in total.</li>
+                    <li><strong>The Biggest Key Insight:</strong> Ukraine's outsized debt load contradicts the assumption that countries with more records (like India) would owe the most.</li>
+                </ul>
+                
+                <p>In this project, I aim to answer the following question: <em>How do World Bank funding allocations and repayment behaviors vary across countries and regions, and what patterns emerge regarding financial risk and dependency?</em></p>
+                
+                <p>To answer this question, I wrote various SQL queries to both clean up the data and to uncover valuable insights, such as:</p>
+                
+                <ul>
+                    <li>Which countries appear the most often throughout this dataset?</li>
+                    <li>Which countries and regions receive the most funding?</li>
+                    <li>Which countries owe the most to the IDA?</li>
+                    <li>Subsequently, what is the credit status for each loan for the countries that owe the most?</li>
+                </ul>
+                
+                <h2>Key Findings From This Analysis</h2>
+                
+                <h3>Funding Totals by Region</h3>
+                
+                <p>South Asia and Africa emerge as the largest recipients, aligning with global development goals.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Funding Totals by Region/Total Funding By Region CODE.png" alt="Total Funding By Region CODE">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Funding Totals by Region/Total Funding By Region RESULT.png" alt="Total Funding By Region RESULT">
+                </div>
+                
+                <h3>Number of Records for Each Country (and their Total Funds Received)</h3>
+                
+                <p>Here we can see that India and Bangladesh lead in the number of records, showing the frequency of financial interactions.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Number of Records for Each Country/Number of Records for Each Country CODE.png" alt="Number of Records for Each Country CODE">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Number of Records for Each Country/Number of Records for Each Country RESULT.png" alt="Number of Records for Each Country RESULT">
+                </div>
+                
+                <h3>Money Due: Descriptive Statistics</h3>
+                
+                <p>Ukraine stands out here with extremely high outstanding balances despite far fewer transactions in the dataset overall (123 total records).</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Descriptive Statistics/Descriptive Statistics CODE.png" alt="Descriptive Statistics CODE">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Descriptive Statistics/Descriptive Statistics RESULT.png" alt="Descriptive Statistics RESULT">
+                </div>
+                
+                <h3>Credit Status Counts (All Countries)</h3>
+                
+                <p>Highlights repayment progress across the dataset. Since we have been focused on India and Ukraine's results up until now, I decided to filter these results for just India and Ukraine below.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Credit Status Counts/Credit Status Counts CODE.png" alt="Credit Status Counts CODE">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Credit Status Counts/Credit Status Counts RESULT.png" alt="Credit Status Counts RESULT">
+                </div>
+                
+                <h3>Credit Status Counts (India and Ukraine Only)</h3>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Credit Status Counts UK IN/India and Ukraine's Credit Statuses CODE.png" alt="India and Ukraine's Credit Statuses CODE">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Credit Status Counts UK IN/India and Ukraine's Credit Statuses RESULT.png" alt="India and Ukraine's Credit Statuses RESULT">
+                </div>
+                
+                <h3>Ukraine's Debt Details</h3>
+                
+                <p>A Breakdown of all 123 of Ukraine's records for further insight. Note that all records under "Repaid to IDA" are at 0, indicating that Ukraine has yet to pay anything back to the IDA.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Ukraine's Debt Details /Ukraine's Debt Details CODE.png" alt="Ukraine's Debt Details CODE">
+                    <img src="assets/images/In-Text Images/SQL Banking project/Visuals for Article/Ukraine's Debt Details /Ukraine's Debt Details RESULT.png" alt="Ukraine's Debt Details RESULT">
+                </div>
+                
+                <h2>Main Takeaways</h2>
+                
+                <ul>
+                    <li>Higher volume of records ≠ higher total debt. Ukraine disproved this immediately by having far more debt and the largest maximum fund than anyone else.</li>
+                    <li>South Asia and Africa are strategic regions for development lending.</li>
+                    <li>Repayment history should be a major factor in future funding decisions.</li>
+                    <li>Large datasets reveal stories you don't expect, especially when using SQL to surface patterns.</li>
+                </ul>
+                
+                <h2>Conclusion</h2>
+                
+                <p>This project not only strengthened my SQL skills but also expanded my understanding of the world of global finance. Analyzing over a million records required lots of critical thinking about lending, debt sustainability, political context, and how quantitative data ties into real-world outcomes. Although this process was challenging, it was also incredibly meaningful and rewarding. It solidified my passion for working with data in a way that helps organizations understand problems and act on what the numbers reveal.</p>
+                
+                <p>Based on my findings, I believe businesses and global institutions should evaluate repayment histories more heavily when offering new loans. This can lead to sustainable funding strategies, stronger financial oversight, and better resource allocation.</p>
+                
+                <p>If you're interested in discussing this project in further detail, or if you want to see other data analytics projects I have worked on, please check out my portfolio and connect with me! Additionally, if somebody you know is looking for a passionate data analyst who loves uncovering insights like these, feel free to connect us to discuss more. Thank you for reading, and I'm excited to continue sharing more data-driven projects soon!</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="contact.html" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="business-analytics.html">Business Analytics</a>
+                    <a href="video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

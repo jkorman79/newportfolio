@@ -76,6 +76,10 @@
                     <i class="fas fa-certificate"></i>
                     SQL Certifications
                 </button>
+                <button class="certifications-button" id="sql-projects-button" onclick="filterByTag('sql-projects', this, event)">
+                    <i class="fas fa-folder-open"></i>
+                    Projects
+                </button>
                 <button class="certifications-button" id="python-cert-button" onclick="filterByTag('python-certifications', this, event)">
                     <i class="fas fa-certificate"></i>
                     Python Certifications
@@ -226,6 +230,23 @@
                         View Credential
                     </a>
             </div>
+
+                <!-- SQL Projects -->
+                <!-- World Bank SQL Analysis -->
+                <div class="project-card" data-tags="sql sql-projects">
+                    <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/SQLBankingProjectThumbnail.png" alt="World Bank SQL Analysis">
+                    </div>
+                    <h3>World Bank SQL Analysis</h3>
+                    <p>A comprehensive SQL analysis of World Bank funding data, analyzing over 1.4 million records to identify which countries receive the most funding, which owe the most, and uncovering surprising patterns in global finance and repayment behaviors.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
+                    </div>
+                    <a href="sql-banking-project.html" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Project
+                    </a>
+                </div>
 
                 <!-- SQL Certifications -->
                 <div class="project-card" data-tags="sql sql-certifications">
@@ -395,6 +416,7 @@
             const excelSubButtonsRow = document.getElementById('excel-sub-buttons-row');
             const dataVizSubButtonsRow = document.getElementById('data-visualization-sub-buttons-row');
             const sqlCertButton = document.getElementById('sql-cert-button');
+            const sqlProjectsButton = document.getElementById('sql-projects-button');
             const pythonCertButton = document.getElementById('python-cert-button');
             const pythonProjectsButton = document.getElementById('python-projects-button');
             const excelProjectsButton = document.getElementById('excel-projects-button');
@@ -412,12 +434,14 @@
             allCertButtons.forEach(button => button.classList.remove('active'));
 
             // Show/hide certifications row and Excel sub-buttons row based on selected tag
-            if (tag === 'sql' || tag === 'sql-certifications') {
+            if (tag === 'sql' || tag === 'sql-certifications' || tag === 'sql-projects') {
                 certificationsRow.style.display = 'flex';
                 excelSubButtonsRow.style.display = 'none';
                 dataVizSubButtonsRow.style.display = 'none';
                 sqlCertButton.style.display = 'flex';
+                sqlProjectsButton.style.display = 'flex';
                 pythonCertButton.style.display = 'none';
+                pythonProjectsButton.style.display = 'none';
                 // Activate SQL category button
                 const sqlButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'sql'"));
                 if (sqlButton) sqlButton.classList.add('active');
@@ -426,6 +450,7 @@
                 excelSubButtonsRow.style.display = 'none';
                 dataVizSubButtonsRow.style.display = 'none';
                 sqlCertButton.style.display = 'none';
+                sqlProjectsButton.style.display = 'none';
                 pythonCertButton.style.display = 'flex';
                 pythonProjectsButton.style.display = 'flex';
                 // Activate Python category button
@@ -474,6 +499,17 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('sql-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'sql-projects') {
+                // Show all projects with SQL tag (excluding certifications)
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('sql') && !cardTags.includes('sql-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

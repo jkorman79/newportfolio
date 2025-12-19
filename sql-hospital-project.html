@@ -83,6 +83,17 @@
             border-radius: 4px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+        .code-result-section figure {
+            margin: 0;
+        }
+        .code-result-section figcaption {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+            text-align: center;
+            line-height: 1.6;
+        }
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
@@ -157,11 +168,12 @@
                 <p>To answer this question, I created a makeshift histogram in SQL:</p>
                 
                 <div class="code-result-section">
-                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Histogram/Histogram.png" alt="Histogram CODE">
-                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Histogram/Histogram RESULT.png" alt="Histogram RESULT">
+                    <figure>
+                        <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Histogram/Histogram.png" alt="Histogram CODE">
+                        <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Histogram/Histogram RESULT.png" alt="Histogram RESULT">
+                        <figcaption>Each star in this histogram represents 100 patients, since we divided the count of patients by 100 to make the results more visually understandable</figcaption>
+                    </figure>
                 </div>
-                
-                <p><em>[Image Caption]:</em> Each star in this histogram represents 100 patients, since we divided the count of patients by 100 to make the results more visually understandable</p>
                 
                 <p><strong>Findings:</strong> Based on this result, we can see that most patients remain at the hospital for less than 7 days, with the sweet spot being around 2-3 days. This is actually good news for the hospital, since it seems the hospital is turning beds over efficiently already. The distribution shows a healthy pattern: 3 days is most common, then 2, then 1, with a decline in exact numerical order after that.</p>
                 

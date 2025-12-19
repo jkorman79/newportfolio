@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Hospital SQL Analysis - Joseph Korman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.8;
+        }
+        .article-title-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        .article-content {
+            color: #333;
+        }
+        .article-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .article-content strong {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .article-content em {
+            font-style: italic;
+            color: #555;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .article-content a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .article-content a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        .code-result-section {
+            margin: 2rem 0;
+        }
+        .code-result-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="video-production.html" class="nav-link">Video Production</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="page-content">
+        <div class="article-container">
+            <a href="business-analytics.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+            
+            <div class="article-content">
+                <img src="assets/images/In-Text Images/SQL Hospital Article/Article Cover Photo.png" alt="Hospital SQL Analysis" class="article-title-image">
+                
+                <h1>Using SQL to identify over $100K in potential cost savings while ensuring equitable patient care.</h1>
+                
+                <p>When I think about data analysis, I don't just think about numbers. I think about the impact I can make on businesses with the help of numerical data. This hospital project caught my attention because it represents a real-world scenario where a new hospital is trying to survive financially while delivering quality care to all patients. It's the perfect storm of constraints: limited beds, tight budgets, expensive procedures, and lives on the line.</p>
+                
+                <p>For this project, I used SQL to identify over $100K in potential cost savings while ensuring equitable patient care and efficient resource use. If you're interested in how data analysis directly translates to business decisions, or if you've ever wondered how hospitals decide where to cut costs, this 5-minute read will show you exactly how I did it using nothing but SQL queries and critical thinking.</p>
+                
+                <h2>About the Data</h2>
+                
+                <p>This analysis uses two primary tables from a new hospital's patient database:</p>
+                
+                <ul>
+                    <li><strong>The Health table:</strong> A dataset that contains treatment data, including number of procedures, various medications, length of stay at the hospital, and different admission types (emergency, non-emergency, etc.).</li>
+                    <li><strong>The Demographics table:</strong> Patient demographic information, including race, gender, weight groups, and age groups.</li>
+                </ul>
+                
+                <p>The data represent real patient encounters at a hospital trying to establish itself in a competitive healthcare market. All analysis was performed using SQL to query, aggregate, and extract actionable insights from thousands of patient records.</p>
+                
+                <h2>The Analysis: Five Questions That Could Save the Hospital</h2>
+                
+                <h3>1. Are We Hogging Hospital Beds?</h3>
+                
+                <p><strong>What I Aim to Determine:</strong> How long are patients staying in the hospital, and should we aim to reduce their stay at the hospital to make room for future patients?</p>
+                
+                <p>Hospital beds are expensive real estate. Every day that a patient stays beyond what's medically necessary costs money and blocks someone else who might need that bed more urgently.</p>
+                
+                <p>To answer this question, I created a makeshift histogram in SQL:</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Histogram/Histogram.png" alt="Histogram CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Histogram/Histogram RESULT.png" alt="Histogram RESULT">
+                </div>
+                
+                <p><em>[Image Caption]:</em> Each star in this histogram represents 100 patients, since we divided the count of patients by 100 to make the results more visually understandable</p>
+                
+                <p><strong>Findings:</strong> Based on this result, we can see that most patients remain at the hospital for less than 7 days, with the sweet spot being around 2-3 days. This is actually good news for the hospital, since it seems the hospital is turning beds over efficiently already. The distribution shows a healthy pattern: 3 days is most common, then 2, then 1, with a decline in exact numerical order after that.</p>
+                
+                <h3>2. Where's All Our Money Going? (Spoiler: Surgery)</h3>
+                
+                <p><strong>What I Aim to Figure Out:</strong> Which medical specialties perform the most procedures per patient?</p>
+                
+                <p>Since this is a relatively new hospital, and surgeries are by far the most expensive operation a hospital performs, if we can identify which practices perform the most surgeries, we can focus on those specialties more closely to determine what needs to change.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Most Surgeries by Field/Most Surgeries By Field.png" alt="Most Surgeries by Field CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Most Surgeries by Field/Most Surgeries by Field RESULT.png" alt="Most Surgeries by Field RESULT">
+                </div>
+                
+                <p><strong>Findings:</strong></p>
+                
+                <ul>
+                    <li>Cardiology performs the most surgeries by a wide margin, with over 5,000 procedures, which makes it the largest cost driver here</li>
+                    <li>On the other hand, Thoracic Surgery averages 3.5 procedures per patient. Despite the smaller sample size, it seems that these patients tend to have more surgeries overall than others on average.</li>
+                    <li>These two fields alone represent the hospital's largest opportunity for cost optimization</li>
+                </ul>
+                
+                <p><strong>Action Item:</strong> Focus cost-reduction initiatives on Cardiology and Thoracic Surgery. This, however, does not mean they should (or will) cut care quality. It simply means the hospital should review protocols and negotiate supplier contracts, and identify process efficiencies to reduce costs in these areas.</p>
+                
+                <h3>3. Are We Playing Favorites? (We Better Not Be)</h3>
+                
+                <p><strong>What I Aim to Figure Out:</strong> Does the hospital treat patients differently based on race?</p>
+                
+                <p>This is both an ethical question, and a legal and reputational one. Hospitals must provide equitable care regardless of demographics.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Average Procedures by Race/Avg procedures by Race.png" alt="Average Procedures by Race CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Average Procedures by Race/Avg procedures By race RESULT.png" alt="Average Procedures by Race RESULT">
+                </div>
+                
+                <p><strong>Findings:</strong> Average procedure counts are very similar across all racial groups in our system. There is no statistical evidence of treatment disparities. Phew!</p>
+                
+                <h3>4. Does A Longer Hospital Stay Mean More Procedures?</h3>
+                
+                <p><strong>What I Aim to Figure Out:</strong> What's the relationship between length of stay and procedure frequency?</p>
+                
+                <p>While intuition would likely tell us that the answer is yes, crunching the numbers to confirm these intuitions can be helpful. Plus, this can help us understand which patients are complex cases versus which might have inefficiencies in their care pathway.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Correlation Time and Procedures/Corelation Time and Procedures.png" alt="Correlation Time and Procedures CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Correlation Time and Procedures/Corelation Time and Procedures RESULT.png" alt="Correlation Time and Procedures RESULT">
+                </div>
+                
+                <p><strong>Findings:</strong> There is a clear positive correlation between patients' length of stay and the number of procedures they undergo. Patients staying more than 10 days have had significantly more procedures on average than those staying for less time. We have now confirmed our intuition using the data!</p>
+                
+                <h3>5. Success Stories: Emergency Efficiency</h3>
+                
+                <p><strong>What I Aim to Figure Out:</strong> Can we spotlight patients who came in as Admission Type 1 (emergencies) but recovered faster than average (i.e. spent less time at the hospital)?</p>
+                
+                <p>Every hospital (and business, for that matter) needs its success stories. These emergency patients who recovered faster than average serve both as statistics and as proof points. They can then look up these patient records and see what the care teams did right. Studying these cases can help us replicate these successes and improve efficiency and care for future patients.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Success Stories/Success Stories.png" alt="Success Stories CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Success Stories/Success Stories RESULT.png" alt="Success Stories RESULT">
+                </div>
+                
+                <p><strong>The Finding:</strong> Using a subquery (because you can't aggregate inside a WHERE clause), this query identifies all Type 1 emergency patients who spent less than the hospital's average length of stay (4.39 days).</p>
+                
+                <p><strong>Why This Matters:</strong> These are our success stories. What did we do right with these patients? Documenting these cases helps us replicate success and demonstrates quality outcomes to stakeholders.</p>
+                
+                <h2>Bonus Insights: Technical Wins</h2>
+                
+                <p>While solving these business problems, I also flexed some SQL muscle:</p>
+                
+                <p><strong>Concatenation for Reports:</strong> I created a narrative-style report (not just table format results) for the top 50 most-medicated patients. This result is perfect for creating an executive summary.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Written Report/Written Report.png" alt="Written Report CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Written Report/Written Report RESULT.png" alt="Written Report RESULT">
+                </div>
+                
+                <p><strong>Window Functions:</strong> I ranked the hospital's top 3 medications (Insulin, Metformin, Glipizide) within each age group using PARTITION BY, revealing which demographics rely on which treatments most.</p>
+                
+                <div class="code-result-section">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Top 3 Medications/Top 3 Medications.png" alt="Top 3 Medications CODE">
+                    <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Top 3 Medications/Top 3 medications RESULT.png" alt="Top 3 Medications RESULT">
+                </div>
+                
+                <p>From these results, we can now determine which age groups utilize which medication the most often, based on the ranking column I created (medication_rank).</p>
+                
+                <h2>Main Takeaways: What We Learned</h2>
+                
+                <p>This project proves that SQL is not just for pulling data, but also for making strategic decisions.</p>
+                
+                <p>Three main takeaways:</p>
+                
+                <ul>
+                    <li><strong>Know where to look:</strong> Cardiology and Thoracic Surgery represent the biggest cost-optimization opportunities, giving leadership a clear starting point for strategic initiatives.</li>
+                    <li><strong>Measure what matters:</strong> Quantifying both problems (high procedure volumes) and successes (fast emergency recoveries) creates a complete picture that drives better decisions than intuition alone.</li>
+                    <li><strong>Data builds trust:</strong> Confirming equitable care across demographics and efficient bed management shows stakeholders that quality and fiscal responsibility can coexist.</li>
+                </ul>
+                
+                <p>For a new hospital fighting to stay afloat, these insights could mean the difference between closing the doors and building a sustainable future.</p>
+                
+                <p>If you're looking for a passionate data analyst who can translate messy datasets into clear business strategy, I'd love to be in touch! I love working on projects where the stakes are real and the insights make a true difference. Additionally, if you want to see more of my similar work, feel free to <a href="https://josephkorman.vercel.app/business-analytics.html" target="_blank">check out my portfolio</a>, and <a href="https://www.linkedin.com/in/josephdkorman" target="_blank">connect with me on LinkedIn</a> to ask any further questions.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="contact.html" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="business-analytics.html">Business Analytics</a>
+                    <a href="video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

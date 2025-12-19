@@ -142,16 +142,16 @@
                 
                 <h1>Using SQL to identify over $100K in potential cost savings while ensuring equitable patient care.</h1>
                 
-                <p>When I think about data analysis, I don't just think about numbers. I think about the impact I can make on businesses with the help of numerical data. This hospital project caught my attention because it represents a real-world scenario where a new hospital is trying to survive financially while delivering quality care to all patients. It's the perfect storm of constraints: limited beds, tight budgets, expensive procedures, and lives on the line.</p>
+                <p>When I think about data analysis, I don't just think about numbers. I think about the <em>impact</em> I can make on businesses <em>with the help</em> of numerical data. This hospital project caught my attention because it represents a real-world scenario where a new hospital is trying to survive financially while delivering quality care to all patients. It's the perfect storm of constraints: limited beds, tight budgets, expensive procedures, and lives on the line.</p>
                 
-                <p>For this project, I used SQL to identify over $100K in potential cost savings while ensuring equitable patient care and efficient resource use. If you're interested in how data analysis directly translates to business decisions, or if you've ever wondered how hospitals decide where to cut costs, this 5-minute read will show you exactly how I did it using nothing but SQL queries and critical thinking.</p>
+                <p>For this project, I used SQL to identify over <strong>$100K in potential cost savings</strong> while ensuring <em>equitable patient care</em> and <em>efficient resource use</em>. If you're interested in how data analysis directly translates to business decisions, or if you've ever wondered how hospitals decide where to cut costs, <strong>this 5-minute read will show you exactly how I did it using nothing but SQL queries and critical thinking</strong>.</p>
                 
                 <h2>About the Data</h2>
                 
                 <p>This analysis uses two primary tables from a new hospital's patient database:</p>
                 
                 <ul>
-                    <li><strong>The Health table:</strong> A dataset that contains treatment data, including number of procedures, various medications, length of stay at the hospital, and different admission types (emergency, non-emergency, etc.).</li>
+                    <li><strong>The Health table:</strong> A dataset that contains treatment data, including the number of procedures, various medications, length of stay at the hospital, and different admission types (emergency, non-emergency, etc.).</li>
                     <li><strong>The Demographics table:</strong> Patient demographic information, including race, gender, weight groups, and age groups.</li>
                 </ul>
                 
@@ -175,7 +175,7 @@
                     </figure>
                 </div>
                 
-                <p><strong>Findings:</strong> Based on this result, we can see that most patients remain at the hospital for less than 7 days, with the sweet spot being around 2-3 days. This is actually good news for the hospital, since it seems the hospital is turning beds over efficiently already. The distribution shows a healthy pattern: 3 days is most common, then 2, then 1, with a decline in exact numerical order after that.</p>
+                <p><strong>Findings:</strong> Based on this result, we can see that most patients remain at the hospital for <strong>less than 7 days</strong>, with the sweet spot being <strong>around 2-3 days</strong>. This is actually <em>good news</em> for the hospital, since it seems the hospital <em>is turning beds over efficiently already</em>. The distribution shows a healthy pattern: <strong>3 days is most common, then 2, then 1</strong>, with a decline in exact numerical order after that.</p>
                 
                 <h3>2. Where's All Our Money Going? (Spoiler: Surgery)</h3>
                 
@@ -191,89 +191,89 @@
                 <p><strong>Findings:</strong></p>
                 
                 <ul>
-                    <li>Cardiology performs the most surgeries by a wide margin, with over 5,000 procedures, which makes it the largest cost driver here</li>
-                    <li>On the other hand, Thoracic Surgery averages 3.5 procedures per patient. Despite the smaller sample size, it seems that these patients tend to have more surgeries overall than others on average.</li>
+                    <li><strong>Cardiology</strong> performs the most surgeries by a wide margin, with <strong>over 5,000 procedures</strong>, which makes it the largest cost driver here</li>
+                    <li>On the other hand, <strong>Thoracic Surgery</strong> averages <strong>3.5 procedures per patient</strong>. Despite the smaller sample size, it seems that these patients tend to have <strong><em>more surgeries overall</em></strong> than others on average.</li>
                     <li>These two fields alone represent the hospital's largest opportunity for cost optimization</li>
                 </ul>
                 
-                <p><strong>Action Item:</strong> Focus cost-reduction initiatives on Cardiology and Thoracic Surgery. This, however, does not mean they should (or will) cut care quality. It simply means the hospital should review protocols and negotiate supplier contracts, and identify process efficiencies to reduce costs in these areas.</p>
+                <p><strong>Action Item:</strong> <strong>Focus cost-reduction initiatives on Cardiology and Thoracic Surgery</strong>. This, however, does not mean they <em>should</em> (or <em>will</em>) cut care quality. It simply means the hospital should <em>review protocols, negotiate supplier contracts, and identify process efficiencies</em> to reduce costs in these areas.</p>
                 
                 <h3>3. Are We Playing Favorites? (We Better Not Be)</h3>
                 
                 <p><strong>What I Aim to Figure Out:</strong> Does the hospital treat patients differently based on race?</p>
                 
-                <p>This is both an ethical question, and a legal and reputational one. Hospitals must provide equitable care regardless of demographics.</p>
+                <p>This is both an ethical question <em>and</em> a legal and reputational one. <strong>Hospitals must provide equitable care to everyone, regardless of demographics</strong>.</p>
                 
                 <div class="code-result-section">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Average Procedures by Race/Avg procedures by Race.png" alt="Average Procedures by Race CODE">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Average Procedures by Race/Avg procedures By race RESULT.png" alt="Average Procedures by Race RESULT">
                 </div>
                 
-                <p><strong>Findings:</strong> Average procedure counts are very similar across all racial groups in our system. There is no statistical evidence of treatment disparities. Phew!</p>
+                <p><strong>Findings:</strong> Average procedure counts are <strong>very similar across all racial groups</strong> in our system. There is no statistical evidence of treatment disparities. Phew!</p>
                 
                 <h3>4. Does A Longer Hospital Stay Mean More Procedures?</h3>
                 
-                <p><strong>What I Aim to Figure Out:</strong> What's the relationship between length of stay and procedure frequency?</p>
+                <p><strong>What I Aim to Figure Out:</strong> What's the relationship between <strong>length of stay</strong> and <strong>procedure frequency</strong>?</p>
                 
-                <p>While intuition would likely tell us that the answer is yes, crunching the numbers to confirm these intuitions can be helpful. Plus, this can help us understand which patients are complex cases versus which might have inefficiencies in their care pathway.</p>
+                <p>While intuition would likely tell us that the answer is yes, <em>crunching the numbers</em> can confirm these intuitions. Additionally, this can help us understand <strong>which patients are complex cases</strong> versus which might have <strong>inefficiencies in their care pathway</strong>.</p>
                 
                 <div class="code-result-section">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Correlation Time and Procedures/Corelation Time and Procedures.png" alt="Correlation Time and Procedures CODE">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Correlation Time and Procedures/Corelation Time and Procedures RESULT.png" alt="Correlation Time and Procedures RESULT">
                 </div>
                 
-                <p><strong>Findings:</strong> There is a clear positive correlation between patients' length of stay and the number of procedures they undergo. Patients staying more than 10 days have had significantly more procedures on average than those staying for less time. We have now confirmed our intuition using the data!</p>
+                <p><strong>Findings:</strong> There is a <strong>clear positive correlation</strong> between patients' length of stay and the number of procedures they undergo. Patients staying more than 10 days have had significantly more procedures on average than those staying for less time. We have now confirmed our intuition using the data!</p>
                 
                 <h3>5. Success Stories: Emergency Efficiency</h3>
                 
-                <p><strong>What I Aim to Figure Out:</strong> Can we spotlight patients who came in as Admission Type 1 (emergencies) but recovered faster than average (i.e. spent less time at the hospital)?</p>
+                <p><strong>What I Aim to Figure Out:</strong> Can we spotlight patients who came in as Admission Type 1 (emergencies) but recovered <em>faster than average</em> (i.e., spent less time at the hospital)?</p>
                 
-                <p>Every hospital (and business, for that matter) needs its success stories. These emergency patients who recovered faster than average serve both as statistics and as proof points. They can then look up these patient records and see what the care teams did right. Studying these cases can help us replicate these successes and improve efficiency and care for future patients.</p>
+                <p>Every hospital (and business, for that matter) <em>needs</em> its success stories. These emergency patients who recovered faster than average serve both as <em>statistics</em> and as <em>proof points</em>. Doctors can then look up these patient records and see what the care teams did well. Studying these cases can help us <strong>replicate these successes</strong> and <strong>improve efficiency and care for future patients</strong>.</p>
                 
                 <div class="code-result-section">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Success Stories/Success Stories.png" alt="Success Stories CODE">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Success Stories/Success Stories RESULT.png" alt="Success Stories RESULT">
                 </div>
                 
-                <p><strong>The Finding:</strong> Using a subquery (because you can't aggregate inside a WHERE clause), this query identifies all Type 1 emergency patients who spent less than the hospital's average length of stay (4.39 days).</p>
+                <p><strong>Findings:</strong> This query identifies <strong>all Type 1 emergency patients who spent less than the hospital's average length of stay (4.39 days)</strong>.</p>
                 
-                <p><strong>Why This Matters:</strong> These are our success stories. What did we do right with these patients? Documenting these cases helps us replicate success and demonstrates quality outcomes to stakeholders.</p>
+                <p><strong>Why This Matters:</strong> These are our success stories. What did we do right with these patients? Documenting these cases helps us <em>replicate success</em> and demonstrates quality outcomes to stakeholders.</p>
                 
                 <h2>Bonus Insights: Technical Wins</h2>
                 
                 <p>While solving these business problems, I also flexed some SQL muscle:</p>
                 
-                <p><strong>Concatenation for Reports:</strong> I created a narrative-style report (not just table format results) for the top 50 most-medicated patients. This result is perfect for creating an executive summary.</p>
+                <p><strong>Concatenation for Reports:</strong> I created a <strong>narrative-style report</strong> (not just table format results) for the <strong>top 50 patients who received the most medication</strong>. This result is perfect for an executive summary.</p>
                 
                 <div class="code-result-section">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Written Report/Written Report.png" alt="Written Report CODE">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Written Report/Written Report RESULT.png" alt="Written Report RESULT">
                 </div>
                 
-                <p><strong>Window Functions:</strong> I ranked the hospital's top 3 medications (Insulin, Metformin, Glipizide) within each age group using PARTITION BY, revealing which demographics rely on which treatments most.</p>
+                <p><strong>Window Functions:</strong> I ranked the hospital's <strong>top 3 medications</strong> (Insulin, Metformin, Glipizide) within each age group using <em>PARTITION BY</em>, revealing <strong>which demographics rely on which treatments most</strong>.</p>
                 
                 <div class="code-result-section">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Top 3 Medications/Top 3 Medications.png" alt="Top 3 Medications CODE">
                     <img src="assets/images/In-Text Images/SQL Hospital Article/In-Article Images/Top 3 Medications/Top 3 medications RESULT.png" alt="Top 3 Medications RESULT">
                 </div>
                 
-                <p>From these results, we can now determine which age groups utilize which medication the most often, based on the ranking column I created (medication_rank).</p>
+                <p>From these results, we can now determine which age groups utilize which medication the most often, based on the newly created ranking column (medication_rank).</p>
                 
                 <h2>Main Takeaways: What We Learned</h2>
                 
-                <p>This project proves that SQL is not just for pulling data, but also for making strategic decisions.</p>
+                <p>This project proves that <strong>SQL is not just for pulling data, but also for making strategic decisions.</strong></p>
                 
                 <p>Three main takeaways:</p>
                 
                 <ul>
-                    <li><strong>Know where to look:</strong> Cardiology and Thoracic Surgery represent the biggest cost-optimization opportunities, giving leadership a clear starting point for strategic initiatives.</li>
-                    <li><strong>Measure what matters:</strong> Quantifying both problems (high procedure volumes) and successes (fast emergency recoveries) creates a complete picture that drives better decisions than intuition alone.</li>
-                    <li><strong>Data builds trust:</strong> Confirming equitable care across demographics and efficient bed management shows stakeholders that quality and fiscal responsibility can coexist.</li>
+                    <li><strong>Know where to look:</strong> Cardiology and Thoracic Surgery represent the <strong><em>biggest cost-optimization opportunities</em></strong>, giving leadership a clear starting point for strategic initiatives.</li>
+                    <li><strong>Measure what matters:</strong> Quantifying both <em>problems</em> (high procedure volumes) and <em>successes</em> (fast emergency recoveries) creates a complete picture that <strong>drives better decisions than intuition alone</strong>.</li>
+                    <li><strong>Data builds trust:</strong> Confirming equitable care across demographics and efficient bed management shows stakeholders that <strong>quality and fiscal responsibility can coexist</strong>.</li>
                 </ul>
                 
                 <p>For a new hospital fighting to stay afloat, these insights could mean the difference between closing the doors and building a sustainable future.</p>
                 
-                <p>If you're looking for a passionate data analyst who can translate messy datasets into clear business strategy, I'd love to be in touch! I love working on projects where the stakes are real and the insights make a true difference. Additionally, if you want to see more of my similar work, feel free to <a href="https://josephkorman.vercel.app/business-analytics.html" target="_blank">check out my portfolio</a>, and <a href="https://www.linkedin.com/in/josephdkorman" target="_blank">connect with me on LinkedIn</a> to ask any further questions.</p>
+                <p>If you're looking for a passionate data analyst who can translate messy datasets into clear business strategy, I'd love to be in touch! I love working on projects where the stakes are real, and the insights make a true difference. Additionally, if you want to see more of my similar work, feel free to <a href="https://josephkorman.vercel.app/business-analytics.html" target="_blank">check out my portfolio</a>, and <a href="https://www.linkedin.com/in/josephdkorman" target="_blank">connect with me on LinkedIn</a> to ask any further questions! Thank you for reading, and <strong>stay tuned for more data analysis.</strong></p>
             </div>
         </div>
     </main>

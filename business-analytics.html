@@ -50,6 +50,10 @@
                     <i class="fas fa-th-large"></i>
                     All Projects
                 </button>
+                <button class="category-button" onclick="filterByTag('certifications', this)">
+                    <i class="fas fa-certificate"></i>
+                    Certifications
+                </button>
                 <button class="category-button" onclick="filterByTag('excel', this)">
                 <i class="fas fa-file-excel"></i>
                 Excel
@@ -224,95 +228,6 @@
                         View Project
                         </a>
                     </div>
-                <!-- Excel Certifications -->
-                <div class="project-card" data-tags="excel excel-certifications">
-                        <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/ExcelCertificateThumbnail.png" alt="Excel Certification">
-                        </div>
-                    <h3>Excel Certification</h3>
-                    <div class="project-tags">
-                        <span class="project-tag tag-excel">Excel</span>
-                    </div>
-                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/67cb58d7b96946326f383665.png" class="download-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i>
-                        Show Credential
-                    </a>
-                </div>
-                <!-- Data Visualization Certifications -->
-                <!-- Tableau Certification -->
-                <div class="project-card" data-tags="tableau data-visualization data-visualization-certifications">
-                        <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/tableau_certificate_thumb.jpeg" alt="Tableau Certification" class="certificate-thumb">
-                        </div>
-                    <h3>Tableau Certification</h3>
-                    <div class="project-tags">
-                        <span class="project-tag tag-tableau">Tableau</span>
-                    </div>
-                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/66d77282ed408e6e4e7e8045.png" class="download-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i>
-                        Show Credential
-                    </a>
-                </div>
-                <!-- Python Certifications -->
-                <div class="project-card" data-tags="python python-certifications">
-                        <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/Python_AI_Thumb.png" alt="AI Python for Beginners Certificate">
-                        </div>
-                    <h3>AI Python for Beginners</h3>
-                    <p>DeepLearning.AI course credential demonstrating foundational Python skills for AI-assisted development.</p>
-                    <div class="project-tags">
-                        <span class="project-tag tag-python">Python</span>
-                    </div>
-                    <a href="https://learn.deeplearning.ai/accomplishments/e12b8904-82b7-4bcf-a2b0-b0ba2bb3ec89?usp=sharing" class="download-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Credential
-                    </a>
-            </div>
-
-                <!-- SQL Certifications -->
-                <div class="project-card" data-tags="sql sql-certifications">
-                        <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/SQLCertificateThumbnail.jpeg" alt="SQL Basics Certification" class="certificate-thumb">
-                        </div>
-                    <h3>SQL Basics Certification</h3>
-                    <p>Certification demonstrating foundational SQL skills and database querying expertise.</p>
-                    <div class="project-tags">
-                        <span class="project-tag tag-sql">SQL</span>
-                    </div>
-                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/68d05899d7b294e70c84d317.png" class="download-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i>
-                        View Credential
-                        </a>
-                    </div>
-                <div class="project-card" data-tags="sql sql-certifications">
-                        <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/SQLJoinsCertificateofCOmpletioncopy.jpg" alt="SQL Joins Certificate">
-                        </div>
-                    <h3>SQL Joins</h3>
-                    <p>DataCamp certification showcasing expertise in SQL joins, including inner, outer, left, and right joins for complex data relationships.</p>
-                    <div class="project-tags">
-                        <span class="project-tag tag-sql">SQL</span>
-                    </div>
-                    <a href="assets/documents/certificates/SQL Joins Certificate of Completion copy.pdf" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                        View Certificate
-                        </a>
-                    </div>
-                <div class="project-card" data-tags="sql sql-certifications">
-                        <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/SQLforBACompletioncopy.jpg" alt="SQL for Business Analysts Certificate">
-                        </div>
-                    <h3>SQL for Business Analysts</h3>
-                    <p>DataCamp certification demonstrating proficiency in SQL for business analysis, including data manipulation, aggregation, and reporting.</p>
-                    <div class="project-tags">
-                        <span class="project-tag tag-sql">SQL</span>
-                    </div>
-                    <a href="assets/documents/certificates/SQL for Business Analysts Completion copy.pdf" class="download-link" download>
-                            <i class="fas fa-download"></i>
-                        View Certificate
-                        </a>
-                    </div>
-
                 <!-- Excel Projects (Reverse Chronological Order) -->
                 <div class="project-card" data-tags="excel excel-templates">
                         <div class="project-thumbnail">
@@ -398,6 +313,113 @@
                         Download Template
                     </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Certifications Section -->
+        <div id="certifications-section" class="projects-section" style="display: none;">
+                <div class="projects-grid">
+                <!-- Excel Certifications -->
+                <div class="project-card" data-tags="excel excel-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/ExcelCertificateThumbnail.png" alt="Excel Certification">
+                        </div>
+                    <h3>Excel Certification</h3>
+                    <div class="project-tags">
+                        <span class="project-tag tag-excel">Excel</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/67cb58d7b96946326f383665.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Show Credential
+                    </a>
+                </div>
+                <!-- Data Visualization Certifications -->
+                <!-- Tableau Certification -->
+                <div class="project-card" data-tags="tableau data-visualization data-visualization-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/tableau_certificate_thumb.jpeg" alt="Tableau Certification" class="certificate-thumb">
+                        </div>
+                    <h3>Tableau Certification</h3>
+                    <div class="project-tags">
+                        <span class="project-tag tag-tableau">Tableau</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/66d77282ed408e6e4e7e8045.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Show Credential
+                    </a>
+                </div>
+                <!-- Python Certifications -->
+                <div class="project-card" data-tags="python python-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Python_AI_Thumb.png" alt="AI Python for Beginners Certificate">
+                        </div>
+                    <h3>AI Python for Beginners</h3>
+                    <p>DeepLearning.AI course credential demonstrating foundational Python skills for AI-assisted development.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-python">Python</span>
+                    </div>
+                    <a href="https://learn.deeplearning.ai/accomplishments/e12b8904-82b7-4bcf-a2b0-b0ba2bb3ec89?usp=sharing" class="download-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Credential
+                    </a>
+                </div>
+                <!-- SQL Certifications -->
+                <div class="project-card" data-tags="sql sql-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/SQLCertificateThumbnail.jpeg" alt="SQL Basics Certification" class="certificate-thumb">
+                        </div>
+                    <h3>SQL Basics Certification</h3>
+                    <p>Certification demonstrating foundational SQL skills and database querying expertise.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/68d05899d7b294e70c84d317.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i>
+                        View Credential
+                        </a>
+                    </div>
+                <div class="project-card" data-tags="sql sql-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/SQLJoinsCertificateofCOmpletioncopy.jpg" alt="SQL Joins Certificate">
+                        </div>
+                    <h3>SQL Joins</h3>
+                    <p>DataCamp certification showcasing expertise in SQL joins, including inner, outer, left, and right joins for complex data relationships.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
+                    </div>
+                    <a href="assets/documents/certificates/SQL Joins Certificate of Completion copy.pdf" class="download-link" download>
+                            <i class="fas fa-download"></i>
+                        View Certificate
+                        </a>
+                    </div>
+                <div class="project-card" data-tags="sql sql-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/SQLforBACompletioncopy.jpg" alt="SQL for Business Analysts Certificate">
+                        </div>
+                    <h3>SQL for Business Analysts</h3>
+                    <p>DataCamp certification demonstrating proficiency in SQL for business analysis, including data manipulation, aggregation, and reporting.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
+                    </div>
+                    <a href="assets/documents/certificates/SQL for Business Analysts Completion copy.pdf" class="download-link" download>
+                            <i class="fas fa-download"></i>
+                        View Certificate
+                        </a>
+                    </div>
+                <div class="project-card" data-tags="sql sql-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/AdvancedSQLCertificate.png" alt="Advanced SQL Certificate">
+                        </div>
+                    <h3>Advanced SQL Certification</h3>
+                    <p>Certification demonstrating advanced SQL skills and database querying expertise.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-sql">SQL</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/66d8ccae7bfeb85b71ba67d9.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Show Credential
+                    </a>
+                    </div>
             </div>
         </div>
 
@@ -520,16 +542,45 @@
                 dataVizSubButtonsRow.style.display = 'none';
             }
 
+            // Get sections
+            const allProjectsSection = document.getElementById('all-projects');
+            const certificationsSection = document.getElementById('certifications-section');
+            
             // Get all project cards
             const projectCards = document.querySelectorAll('.project-card');
 
             if (tag === 'all') {
-                // Show all projects
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
+                // Show all projects (excluding certifications)
                 projectCards.forEach(card => {
-                    card.style.display = 'block';
+                    const cardTags = card.getAttribute('data-tags') || '';
+                    if (!cardTags.includes('certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'certifications') {
+                // Show certifications section, hide all projects section
+                allProjectsSection.style.display = 'none';
+                certificationsSection.style.display = 'block';
+                // Show all certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags') || '';
+                    if (cardTags.includes('certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'sql-certifications') {
+                // Show certifications section, hide all projects section
+                allProjectsSection.style.display = 'none';
+                certificationsSection.style.display = 'block';
                 // Show only SQL certifications
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -541,6 +592,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'sql-projects') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
                 // Show all projects with SQL tag (excluding certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -552,6 +606,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'python-certifications') {
+                // Show certifications section, hide all projects section
+                allProjectsSection.style.display = 'none';
+                certificationsSection.style.display = 'block';
                 // Show only Python certifications
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -563,6 +620,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'python-projects') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
                 // Show all projects with Python tag (excluding certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -574,6 +634,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'excel-projects') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
                 // Show all projects with Excel tag (excluding templates and certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -585,6 +648,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'excel-templates') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
                 // Show only Excel templates
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -596,6 +662,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'excel-certifications') {
+                // Show certifications section, hide all projects section
+                allProjectsSection.style.display = 'none';
+                certificationsSection.style.display = 'block';
                 // Show only Excel certifications
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -607,6 +676,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'data-visualization-certifications') {
+                // Show certifications section, hide all projects section
+                allProjectsSection.style.display = 'none';
+                certificationsSection.style.display = 'block';
                 // Show only Data Visualization certifications
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -618,6 +690,9 @@
                 });
                 buttonElement.classList.add('active');
             } else if (tag === 'data-visualization-projects') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
                 // Show all projects with Data Visualization tag (excluding certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
@@ -630,6 +705,9 @@
                 buttonElement.classList.add('active');
             } else {
                 // Filter by tag (excel, sql, python, r) - show all projects with that tag, including certifications
+                // Show both sections to allow certifications to appear in their folders
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'block';
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags') || '';
                     const tagList = cardTags.split(/\s+/);

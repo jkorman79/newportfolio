@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Mets Analysis - Joseph Korman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.8;
+        }
+        .article-title-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        .article-content {
+            color: #333;
+        }
+        .article-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .article-content strong {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .article-content em {
+            font-style: italic;
+            color: #555;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .article-content a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .article-content a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        .disclaimer-list {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .disclaimer-list li {
+            margin-bottom: 0.5rem;
+        }
+        .tableau-visual {
+            margin: 2rem 0;
+            width: 100%;
+        }
+        .tableau-visual iframe,
+        .tableau-visual object {
+            width: 100%;
+            max-width: 1016px;
+            height: 991px;
+            border: none;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="video-production.html" class="nav-link">Video Production</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="page-content">
+        <div class="article-container">
+            <a href="business-analytics.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+            
+            <div class="article-content">
+                <h1>Building a Smarter Roster: How the New York Mets Could Use Data to Win the 2025–26 Offseason</h1>
+                
+                <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 2rem;">An Analytical Study by Joseph Korman</p>
+                
+                <img src="assets/images/thumbnails/Mets Analysis Cover Photo copy.png" alt="Mets Analysis Cover" class="article-title-image">
+                
+                <h2>Why THIS Project?</h2>
+                
+                <p>Front offices don't win championships on gut instinct alone anymore. <strong>They win by using data to back up their decisions</strong>. For this project, I put myself in the shoes of an MLB analytics team and asked a simple but powerful question: <em>If I worked for the New York Mets and was tasked to use data to come up with ideas for offseason improvement, where are our weaknesses, and how could we realistically improve them using last season's statistics?</em></p>
+                
+                <p>This project provided an opportunity to apply Tableau to a real-world sports analytics use case, simulating <strong>how teams might evaluate talent, identify gaps, and make more informed offseason decisions.</strong></p>
+                
+                <h3 style="font-size: 1.1rem; font-weight: 600; color: #2c3e50; margin-top: 2rem; margin-bottom: 1rem;"><strong>Disclaimers:</strong></h3>
+                <ul class="disclaimer-list">
+                    <li>I do not work for the New York Mets. All findings represent theoretical insights based on publicly available data and are not official recommendations.</li>
+                    <li>This analysis does not take into account what has actually happened this offseason thus far <em>(and if they followed my recommendations I gave in this study, they probably would be doing a much better job in real life than they have been up until now)</em>.</li>
+                    <li>This analysis also does not account for potential minor league talent that could be introduced. <strong>It only references players who played during the 2025 MLB season.</strong></li>
+                </ul>
+                
+                <h2>Here's Why You Should Keep Reading</h2>
+                
+                <p>By the end of this article, you'll see firsthand:</p>
+                
+                <ul>
+                    <li>Where the Mets struggled most offensively and defensively in 2025</li>
+                    <li>Which <em>positions</em> present the <strong>biggest upgrade opportunities</strong></li>
+                    <li>Which players around the league could <em>realistically</em> improve their roster</li>
+                    <li>How <strong>age, OPS, home runs, and pitching metrics</strong> can shape <em>smarter</em> roster decisions</li>
+                </ul>
+                
+                <p>This is a data-driven look at how analytics can inform strategic decisions, not just in baseball, but in any performance-based organization.</p>
+                
+                <h2>About the Data</h2>
+                
+                <p>For this analysis, I used <strong><a href="https://www.baseball-reference.com/" target="_blank">Baseball Reference data</a></strong> covering:</p>
+                
+                <ul>
+                    <li><strong>MLB <a href="https://www.baseball-reference.com/leagues/majors/2025-standard-batting.shtml" target="_blank">hitters</a> and <a href="https://www.baseball-reference.com/leagues/majors/2025-standard-pitching.shtml" target="_blank">pitchers</a> from the 2025 season</strong></li>
+                    <li>Offensive stats (OPS, hits, home runs)</li>
+                    <li>Pitching stats (ERA, innings pitched, strikeouts)</li>
+                    <li>Player demographics (age, position, team, division, etc.)</li>
+                </ul>
+                
+                <p>This dataset allowed me to analyze league-wide trends while honing in <strong><em>specifically on the Mets' roster</em></strong> and performance relative to competitors.</p>
+                
+                <p>Additionally, these plots and visuals <strong>can be used by anyone</strong> looking to analyze the performance of <strong>any team, player, position, and much more from the 2025 MLB season</strong>. For the purpose of this analysis, however, I specifically used it to analyze the <em>New York Mets' season</em> and what they can do in the offseason to improve. Feel free to use it at your own leisure to analyze anything you want from the 2025 season! And <strong>check out the links listed above</strong> to view the original data for yourself.</p>
+                
+                <h2>My Findings</h2>
+                
+                <h3>OPS by Team and Position</h3>
+                
+                <p>To begin, I analyzed <strong>OPS by team and position</strong>, with the ability to filter by team, position, and even search for individual players. This made it easy to isolate hitters and compare them to others to determine performance levels.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546606509' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;JH&#47;JH297Q9X9&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;JH297Q9X9' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;JH&#47;JH297Q9X9&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546606509');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p>When filtering only for Mets players, a clear weakness emerged: <strong>centerfielders consistently posted lower OPS values than most other positions on the team</strong> <em>(hover over the bars to see the players' positions)</em>.</p>
+                
+                <p><strong>Note:</strong> While OPS and power are not the sole measurements of player value (fielding, contracts, and leadership matter too), this analysis focuses strictly on offensive production as a decision driver for offensive players.</p>
+                
+                <h3>Home Runs by Position</h3>
+                
+                <p>I then analyzed <strong>home runs by position</strong> using a treemap.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546774899' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P4&#47;P47K4BBRG&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;P47K4BBRG' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P4&#47;P47K4BBRG&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546774899');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p>Filtering to Mets players revealed a similar pattern: <strong>centerfielders once again lagged behind</strong>, reinforcing the need for hitters who can deliver both contact and power from that position.</p>
+                
+                <p><strong>Next Step:</strong> If centerfield offense is weak, <strong>we should look <em>league-wide</em> for centerfielders with the strongest OPS numbers</strong>.</p>
+                
+                <h3>OPS Heatmap by Team and Position</h3>
+                
+                <p>To identify potential targets, I used a <strong>heatmap of OPS by team and position</strong>, sorted by <em>centerfield OPS</em> in descending order.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766602165133' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2024MLBSeasonInsights&#47;PlayerAnalysis&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='2024MLBSeasonInsights&#47;PlayerAnalysis' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2024MLBSeasonInsights&#47;PlayerAnalysis&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766602165133');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p>This revealed that <strong>the Yankees, Mariners, Cubs, and Blue Jays</strong> had the strongest offensive output <em>from the centerfield position</em>. Additionally, if you sort in <em>ascending number order</em> for centerfielders, you will see that the Mets' total OPS by centerfielders was <strong>the second lowest in all of the MLB!</strong></p>
+                
+                <p>To pinpoint <em>which</em> players were driving those numbers, <strong>I returned to the OPS bar chart</strong> and filtered by centerfielders on those teams.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546684974' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CX&#47;CXC8YBDFP&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;CXC8YBDFP' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CX&#47;CXC8YBDFP&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546684974');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p><strong>Insights:</strong></p>
+                
+                <ul>
+                    <li><strong>Daulton Varsho</strong> stood out with an <strong>.833 OPS</strong>, making him a strong (though likely expensive) candidate to acquire.</li>
+                    <li><strong>Myles Straw</strong> also posted a <strong>higher OPS than all of the Mets centerfielders</strong> and could be a more cost-effective option.</li>
+                </ul>
+                
+                <p>Removing the team filter entirely, however, revealed the full landscape of centerfielders across the league.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546706544' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;D2&#47;D2KK2ZSYK&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;D2KK2ZSYK' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;D2&#47;D2KK2ZSYK&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546706544');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p><strong>Insights:</strong></p>
+                
+                <ul>
+                    <li><strong>Byron Buxton</strong> had the highest OPS among all centerfielders last season.</li>
+                    <li>Other (and more realistic) targets include <strong>Andy Pages, JJ Bleday, Evan Carter, and Jung Hoo Lee</strong>, who are less expensive but still good potential options.</li>
+                </ul>
+                
+                <h3>Age and Offensive Production</h3>
+                
+                <p>Next, I explored <strong>hits by age group and team</strong> using a stacked bar chart.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546723699' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P3&#47;P3XRG92JX&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;P3XRG92JX' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;P3&#47;P3XRG92JX&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546723699');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p><strong>Key insights:</strong></p>
+                
+                <ul>
+                    <li>The <strong>Blue Jays</strong> generated a majority of their hits from players aged <strong>25–29</strong> with <em>over 1,000 hits</em> coming from those players</li>
+                    <li>The <strong>Mets</strong>, on the other hand, relied heavily on players aged <strong>30–34</strong></li>
+                </ul>
+                
+                <p>Here is an overview of the Mets' offensive players' ages:</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546756364' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PD&#47;PD5PCTD5F&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;PD5PCTD5F' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PD&#47;PD5PCTD5F&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546756364');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p>This shows that <strong>Francisco Lindor, Brandon Nimmo, Cedric Mullins, Pete Alonso, and Tyrone Taylor</strong> are all in their early 30s, and also produced the <em>most hits out of all age groups</em> on the team.</p>
+                
+                <p><strong>Insight:</strong> While these players have been productive, the data suggests the Mets could benefit from investing in <strong>younger hitters</strong> who may offer longer-term offensive upside.</p>
+                
+                <h3>Pitching Performance Analysis</h3>
+                
+                <p>Offense isn't the whole story, however. I also evaluated pitching performance using ERA metrics, strikeouts, and innings pitched.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546819444' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;4Z&#47;4ZBHPYGQP&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;4ZBHPYGQP' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;4Z&#47;4ZBHPYGQP&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546819444');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p>While Mets pitchers generally posted serviceable ERAs, there is a lot of room for improvement in this department. To uncover undervalued pitching options, I used a bubble plot combining innings pitched, strikeouts, and ERA.</p>
+                
+                <div class="tableau-visual">
+                    <div class='tableauPlaceholder' id='viz1766546844541' style='position: relative'><noscript><a href='#'><img alt='Player Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GF&#47;GFXBNNXHX&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GFXBNNXHX' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GF&#47;GFXBNNXHX&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+                    <script type='text/javascript'>                    var divElement = document.getElementById('viz1766546844541');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+                
+                <p><strong>Smaller bubbles = <em>lower</em> ERA</strong> <strong>(better performance)</strong></p>
+                
+                <p>This visualization highlights pitchers who performed well while also taking their workload into account.</p>
+                
+                <p>From this bubble plot, we can also look for the pitchers who went more <em>under the radar</em> in terms of their performance in 2025. We can find these pitchers by looking for the <em>smallest</em> dots (<em>lowest</em> ERAs) of pitchers who threw <strong>fewer innings overall</strong>.</p>
+                
+                <p>Potential candidates based on this search include:</p>
+                
+                <ul>
+                    <li><strong>Braydon Fisher</strong></li>
+                    <li><strong>Tyler Phillips</strong></li>
+                    <li><strong>Kolby Allard</strong></li>
+                    <li><strong>Daniel Lynch</strong></li>
+                </ul>
+                
+                <p>On the flip side, pitchers like <strong>Bradley Blalock</strong> (9.43 ERA) can be confidently ruled out (along with most pitchers on the Colorado Rockies…and players for that matter).</p>
+                
+                <h2>Main Takeaways</h2>
+                
+                <p>This project demonstrated how data can uncover:</p>
+                
+                <ul>
+                    <li>Clear positional weaknesses (like the Mets centerfield offense performance)</li>
+                    <li><strong>Age-related trends</strong> that impact long-term planning</li>
+                    <li>Under-the-radar players who could offer <strong>strong returns long-term</strong></li>
+                    <li>The importance of <strong>combining multiple metrics</strong> for smarter evaluations</li>
+                </ul>
+                
+                <p>What stood out most was how consistently <strong>the data pointed to the same conclusions across multiple visuals</strong>, which is a strong signal that these insights are actually legitimate.</p>
+                
+                <h2>Conclusion</h2>
+                
+                <p>This analysis reinforced how powerful data can be when paired with thoughtful questions. By using Tableau to explore player performance from multiple angles, I was able to simulate how a front office might approach roster construction in a strategic, evidence-based way.</p>
+                
+                <p>If you're interested in <em>sports analytics</em>, <em>data visualization</em>, or <em>how data can drive real-world decision-making</em>, I'd love for you to <a href="https://josephkorman.vercel.app/business-analytics.html" target="_blank">check out my portfolio</a> and <a href="https://www.linkedin.com/in/josephdkorman" target="_blank">connect with me on LinkedIn</a>! Feel free to explore my work, ask questions about this project and others, or reach out to discuss potential data analytics opportunities in the future.</p>
+                
+                <p>Thank you for reading, and let's keep the conversation going!</p>
+            </div>
+            
+            <a href="business-analytics.html" class="back-link" style="margin-top: 3rem;">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="contact.html" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="about.html">About</a>
+                    <a href="resume.html">Resume</a>
+                    <a href="business-analytics.html">Business Analytics</a>
+                    <a href="video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

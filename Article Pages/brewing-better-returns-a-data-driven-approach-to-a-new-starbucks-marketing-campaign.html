@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>Starbucks Cluster Analysis - Joseph Korman</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.8;
+        }
+        .article-title-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        .article-content {
+            color: #333;
+        }
+        .article-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .article-content strong {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .article-content em {
+            font-style: italic;
+            color: #555;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .article-content a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .article-content a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        .code-result-section {
+            margin: 2rem 0;
+        }
+        .code-result-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="../video-production.html" class="nav-link">Video Production</a>
+                <a href="../resume.html" class="nav-link">Resume</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="page-content">
+        <div class="article-container">
+            <a href="../business-analytics.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+            
+            <div class="article-content">
+                <h1 style="text-align: center;">Brewing Better Returns: A Data-Driven Approach to a New Starbucks Marketing Campaign</h1>
+                
+                <img src="../assets/images/In-Text Images/Starbucks Marketing Project/Starbucks Project Cover Image.png" alt="Starbucks Cluster Analysis" class="article-title-image">
+                
+                <p>As the holiday season comes to a close, I find myself reflecting on the unique charm of <em>Starbucks'</em> timely festive marketing campaigns. My passion for data-driven marketing solutions led me to research and explore <strong>how Starbucks could improve its advertising approach moving forward</strong>. This project was not only a chance to hone my skills using real-world data, but also a timely opportunity to <strong>set Starbucks up for a successful new year</strong>.</p>
+                
+                <p>I've always loved the idea of using data to solve marketing questions, especially when it comes to crafting <em>effective advertising strategies</em>. Starbucks' iconic holiday campaigns inspired me to see how data could <strong>enhance their impact</strong> and <strong>drive better customer engagement</strong>.</p>
+                
+                <h2>What You'll Learn</h2>
+                
+                <p>By reading this article, you'll discover key insights into <em>Starbucks'</em> customer behavior, identify high-value segments, and understand how targeted marketing could enhance their business strategy. I'll share findings like the purchasing habits of <em>Starbucks'</em> customers, and offer a recommendation for their future campaigns.</p>
+                
+                <h2>Key Takeaways</h2>
+                
+                <ul>
+                    <li>Most <em>Starbucks</em> purchases <strong>occur in winter, and primarily at night</strong>.</li>
+                    <li><em>Many</em> high-spending customers <strong>have not made any purchases in the last few months.</strong></li>
+                    <li><em>Suburban</em> and <em>uptown</em> stores are more popular than downtown locations (i.e. they have a higher number of total sales).</li>
+                </ul>
+                
+                <h2>About This Data</h2>
+                
+                <p>I analyzed a dataset from Kaggle with <strong>over 85,000 rows</strong>, which captures information such as <em>order date, season, purchase items, customer demographics</em>, and much more. This comprehensive data was <strong>crucial in identifying patterns</strong> and informing strategic decisions.</p>
+                
+                <h2>Analysis</h2>
+                
+                <p>Starting with data cleaning and transformation, I used <strong>segmentation</strong> and <strong>RFM analysis</strong> to determine the <em>best marketing campaigns</em> to try out that are <strong>best suited for Starbucks' customers</strong>. The results were both intriguing and unexpected. For instance, <strong>most purchases happened at <em>night</em></strong>, contrary to the understandable expectation that most people would purchase coffee in the morning. This led to insights into customer preferences and timing, shaping the strategic recommendations.</p>
+                
+                <h2>Visuals and Insights</h2>
+                
+                <h3>Cluster Dendrogram</h3>
+                
+                <p>Used to <strong>determine the number of customer segments</strong> to use for analysis. Based on this result, <strong>I decided to use three customer segments</strong> for K-Means Cluster analysis, which I determined by <em>drawing a straight line down from the number 10 at the top of the dendrogram.</em></p>
+                
+                <div class="code-result-section">
+                    <img src="../assets/images/In-Text Images/Starbucks Marketing Project/In-Article Images/Dendrogram for seg.png" alt="Dendrogram for seg">
+                </div>
+                
+                <h3>Segmentation Results</h3>
+                
+                <p>A table that shows behavioral information about <strong>all three segments</strong> found. This table showcases purchase behaviors and loyalty membership among all three clusters. In the end, <strong>I decided to use the first segment</strong> (highlighted), since those customers <em>tend to spend the most per transaction on average</em>. This segment <strong>proved vital</strong> in understanding high-value customers.</p>
+                
+                <div class="code-result-section">
+                    <img src="../assets/images/In-Text Images/Starbucks Marketing Project/In-Article Images/Clusters Table.png" alt="Clusters Table">
+                </div>
+                
+                <h3>Purchases by Time of Day</h3>
+                
+                <p>This bar chart illustrates seasonal purchasing trends, confirming that <strong>most purchases occur <em>at night</em></strong>, with mornings closely behind.</p>
+                
+                <div class="code-result-section">
+                    <img src="../assets/images/In-Text Images/Starbucks Marketing Project/In-Article Images/Time of Day.png" alt="Time of Day">
+                </div>
+                
+                <h3>Purchases by Season</h3>
+                
+                <p>This bar chart revealed that <strong>winter and spring are the peak seasons for <em>Starbucks</em></strong>, emphasizing the importance of targeting the ads at this time period.</p>
+                
+                <div class="code-result-section">
+                    <img src="../assets/images/In-Text Images/Starbucks Marketing Project/In-Article Images/Season.png" alt="Season">
+                </div>
+                
+                <h3>Store Location Sales</h3>
+                
+                <p>Surprisingly, <strong>suburban and uptown stores outperformed downtown</strong>, indicating where marketing efforts could be concentrated.</p>
+                
+                <div class="code-result-section">
+                    <img src="../assets/images/In-Text Images/Starbucks Marketing Project/In-Article Images/Store Location.png" alt="Store Location">
+                </div>
+                
+                <h2>Main Takeaways</h2>
+                
+                <p>Starbucks' strategy should focus on re-engaging <strong>high-spending customers who haven't returned recently</strong>. Targeted marketing campaigns <strong>during the winter nights</strong> could capitalize on peak purchasing times. Emphasizing <em>suburban and uptown areas</em> in advertising could further boost sales.</p>
+                
+                <h2>Conclusion and Personal Reflections</h2>
+                
+                <p>This project taught me the power of data in <strong>revealing unexpected customer behaviors</strong>, such as the prominence of nighttime purchases. By overcoming my initial assumptions and diving deep into data analysis, I developed a clearer picture of strategic opportunities. My recommendation for Starbucks is to <strong>craft targeted advertisements focusing on high-value segments during key seasons, especially winter.</strong></p>
+                
+                <p>If you're interested in discussing data analytics or need insights for your business strategy, please <a href="https://www.linkedin.com/in/josephdkorman" target="_blank">connect with me on LinkedIn</a>, and <a href="https://josephkorman.vercel.app/business-analytics.html" target="_blank">check out my portfolio</a> for my data analysis projects! Let's explore how data can drive success together!</p>
+            </div>
+            
+            <a href="../business-analytics.html" class="back-link" style="margin-top: 3rem;">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="../contact.html" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="../about.html">About</a>
+                    <a href="../resume.html">Resume</a>
+                    <a href="../business-analytics.html">Business Analytics</a>
+                    <a href="../video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+

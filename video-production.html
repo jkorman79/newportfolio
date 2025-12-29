@@ -47,7 +47,11 @@
 
         <!-- Video Categories -->
         <div class="video-categories">
-            <button class="category-button active" onclick="filterVideos('independent')">
+            <button class="category-button active" onclick="filterVideos('all')">
+                <i class="fas fa-th-large"></i>
+                All
+            </button>
+            <button class="category-button" onclick="filterVideos('independent')">
                 <i class="fas fa-film"></i>
                 Independent Productions
             </button>
@@ -61,8 +65,15 @@
             </button>
         </div>
 
+        <!-- All Videos Section -->
+        <div id="all" class="video-section">
+            <div class="video-grid" id="all-videos-grid">
+                <!-- Videos will be populated by JavaScript -->
+            </div>
+        </div>
+
         <!-- Independent Productions -->
-        <div id="independent" class="video-section">
+        <div id="independent" class="video-section" style="display: none;">
             <div class="video-grid">
                 <div class="video-item" data-category="independent">
                     <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/cfyjqfS4BeU">
@@ -920,6 +931,66 @@
 
     <script src="script.js"></script>
     <script>
+        // Priority order for sections
+        const sectionPriority = [
+            'independent',
+            'jomboy-created',
+            'jomboy-featured',
+            'harpur-standard',
+            'harpur-reels',
+            'camp-standard',
+            'camp-reels',
+            'freelance',
+            'wynn-standard',
+            'wynn-reels'
+        ];
+
+        // Collect and distribute videos evenly
+        function populateAllVideos() {
+            const allVideosGrid = document.getElementById('all-videos-grid');
+            if (!allVideosGrid) return;
+
+            // Collect videos by category
+            const videosByCategory = {};
+            sectionPriority.forEach(category => {
+                videosByCategory[category] = [];
+            });
+
+            // Collect all video items
+            document.querySelectorAll('.video-item').forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (videosByCategory.hasOwnProperty(category)) {
+                    videosByCategory[category].push(item.cloneNode(true));
+                }
+            });
+
+            // Distribute videos evenly in round-robin fashion
+            const distributedVideos = [];
+            const categoryIndices = {};
+            sectionPriority.forEach(cat => categoryIndices[cat] = 0);
+
+            let maxVideos = 0;
+            sectionPriority.forEach(cat => {
+                maxVideos = Math.max(maxVideos, videosByCategory[cat].length);
+            });
+
+            // Round-robin distribution
+            for (let i = 0; i < maxVideos; i++) {
+                sectionPriority.forEach(category => {
+                    if (categoryIndices[category] < videosByCategory[category].length) {
+                        distributedVideos.push(videosByCategory[category][categoryIndices[category]]);
+                        categoryIndices[category]++;
+                    }
+                });
+            }
+
+            // Populate the grid
+            allVideosGrid.innerHTML = '';
+            distributedVideos.forEach(video => {
+                allVideosGrid.appendChild(video);
+            });
+        }
+
         function filterVideos(category) {
             const sections = document.querySelectorAll('.video-section');
             sections.forEach(section => section.style.display = 'none');
@@ -927,9 +998,27 @@
             const buttons = document.querySelectorAll('.category-button');
             buttons.forEach(button => button.classList.remove('active'));
             
-            document.getElementById(category).style.display = 'block';
+            if (category === 'all') {
+                populateAllVideos();
+                document.getElementById('all').style.display = 'block';
+            } else {
+                document.getElementById(category).style.display = 'block';
+            }
+            
             event.target.classList.add('active');
         }
+
+        // Initialize: populate all videos and show "all" section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            populateAllVideos();
+            document.getElementById('all').style.display = 'block';
+            // Hide other sections
+            document.querySelectorAll('.video-section').forEach(section => {
+                if (section.id !== 'all') {
+                    section.style.display = 'none';
+                }
+            });
+        });
 
         function filterCompanyVideos(company) {
             const companySections = document.querySelectorAll('.company-section');

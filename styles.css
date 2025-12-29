@@ -768,6 +768,25 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.video-channel {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.video-channel a {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.video-channel a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
 /* Contact Form */
 .contact-form {
     max-width: 600px;

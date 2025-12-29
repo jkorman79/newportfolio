@@ -781,9 +781,6 @@ body {
     justify-content: center;
 }
 
-.video-info-left .video-channel-tags {
-    justify-content: flex-start;
-}
 
 .video-channel-tag {
     padding: 0.4rem 0.8rem;

@@ -766,25 +766,41 @@ body {
     font-weight: 600;
     color: #1f2937;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
-.video-channel {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #6b7280;
-    margin-top: 0.5rem;
-    font-style: italic;
+.video-title-left {
+    text-align: left;
 }
 
-.video-channel a {
-    color: #2563eb;
+.video-channel-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    justify-content: center;
+}
+
+.video-info-left .video-channel-tags {
+    justify-content: flex-start;
+}
+
+.video-channel-tag {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+    background-color: #2563eb;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
-.video-channel a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
+.video-channel-tag:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    color: white;
 }
 
 /* Contact Form */

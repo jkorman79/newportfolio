@@ -800,6 +800,54 @@ body {
     color: white;
 }
 
+.video-section-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    justify-content: center;
+}
+
+.video-section-tag {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.video-section-tag-harpur {
+    background-color: #16a34a; /* Green */
+}
+
+.video-section-tag-jomboy {
+    background-color: #14b8a6; /* Teal/Light Blue */
+}
+
+.video-section-tag-camp {
+    background-color: #ea580c; /* Orange */
+}
+
+.video-section-tag-wynn {
+    background-color: #1e40af; /* Dark Blue */
+}
+
+.video-section-tag-independent {
+    background-color: #000000; /* Black */
+}
+
+.video-section-tag-freelance {
+    background-color: #ffffff; /* White */
+    color: #333;
+    border: 1px solid #e5e7eb;
+}
+
+.video-info-left .video-section-tags {
+    justify-content: flex-start;
+}
+
 /* Contact Form */
 .contact-form {
     max-width: 600px;

@@ -1197,6 +1197,24 @@
                 allVideosGrid.appendChild(video);
             });
         }
+        
+        // Use event delegation for video thumbnails in the "all" section
+        document.addEventListener('DOMContentLoaded', function() {
+            const allVideosGrid = document.getElementById('all-videos-grid');
+            if (allVideosGrid) {
+                allVideosGrid.addEventListener('click', function(e) {
+                    // Check if click is on a video thumbnail or its child elements
+                    const thumbnail = e.target.closest('.video-thumbnail');
+                    if (thumbnail) {
+                        e.preventDefault();
+                        const videoUrl = thumbnail.getAttribute('data-video-url');
+                        if (videoUrl && typeof playInlineInThumbnail === 'function') {
+                            playInlineInThumbnail(thumbnail);
+                        }
+                    }
+                });
+            }
+        });
 
         function filterVideos(category) {
             const sections = document.querySelectorAll('.video-section');

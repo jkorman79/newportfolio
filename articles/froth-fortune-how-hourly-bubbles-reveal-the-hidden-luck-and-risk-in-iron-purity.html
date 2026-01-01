@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>Froth & Fortune: Iron Mining Analysis - Joseph Korman</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.8;
+        }
+        .article-title-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        .article-content {
+            color: #333;
+        }
+        .article-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .article-content strong {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .article-content em {
+            font-style: italic;
+            color: #555;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .article-content a {
+            color: #2563eb;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .article-content a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        .code-result-section {
+            margin: 2rem 0;
+        }
+        .code-result-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .article-content img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../articles.html" class="nav-link">Articles</a>
+                <a href="../business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="../video-production.html" class="nav-link">Video Production</a>
+                <a href="../resume.html" class="nav-link">Resume</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="page-content">
+        <div class="article-container">
+            <a href="../business-analytics.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+            
+            <div class="article-content">
+                <h1 style="text-align: center;">Froth & Fortune: How Hourly Bubbles Reveal the Hidden Luck (and Risk) in Iron Purity</h1>
+                
+                <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 2rem;">An investigative data story from Metals R' Us' flotation plant on the day when froth, pH, and flow went rogue.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/Python Iron Project Cover Image.png" alt="Iron Mining Project Cover" class="article-title-image">
+                
+                <p>Industrial process data is <strong>noisy, messy, and richly practical</strong>, and that's <em>EXACTLY</em> why I chose it! The dataset comes from a <em>real</em> flotation plant and reflects actual operational challenges, such as <strong>mixed sampling frequencies, missing precision in timestamps, and dozens of interacting sensors</strong>. Unlike polished benchmark datasets, this one <em>forces you</em> to <strong>solve real engineering problems</strong> (alignment, resampling, and interpretation) while producing <strong>business-relevant insights</strong>. Here are some of the insights this study shows:</p>
+                
+                <ul>
+                    <li>How consistent is the iron concentrate that the plant sells?</li>
+                    <li>Small changes in process variables can mean large differences in product quality and revenue</li>
+                    <li>Therefore, this analysis is <em>directly</em> tied to operational performance.</li>
+                </ul>
+                
+                <h2>Here's why you should keep reading</h2>
+                
+                <p>To keep it short and sweet, this project looks at how the key quality metric (<em>% Iron Concentrate</em>) changed every hour on June 1, 2017, and whether common process variables (pH, column level, flow) correlate with those changes. By reading more, you'll get:</p>
+                
+                <ul>
+                    <li>A <strong><em>reproducible</em></strong> <em>Python</em> analysis pipeline.</li>
+                    <li>Exploratory <strong>visualizations</strong> (pairplots, heatmaps, and time series plots).</li>
+                    <li><strong>Practical next steps</strong> for production monitoring and modeling to reduce <em>variability</em> in iron quality.</li>
+                </ul>
+                
+                <p>Read on if you care about <strong>turning noisy sensor data into reliable operational insight.</strong></p>
+                
+                <h2>About the Data</h2>
+                
+                <p>This dataset is from Kaggle, and it contains <strong>real industrial data</strong> gathered between March 2017 and September 2017. It contains <strong>time series sensor readings</strong> from a flotation plant. Every row in the dataset is a <em>time point</em> (every row represents the status of the iron ore at a different period of time), and the file contains <em>24 columns</em>, including a date column and various process measurements.</p>
+                
+                <p>It is important to note the mixed sampling (or resolution) of the data. <strong>Some variables are measured every 20 seconds, and others are measured hourly.</strong> The date column included the <em>day, month, year, and hour</em>, but <strong>did not specify the exact time (in hours or minutes)</strong> in the original formatting. This required careful conversion to datetime and filtering logic (which we do later on in Python).</p>
+                
+                <p><strong>Business focus:</strong> The variable "% Iron Concentrate" is the primary quality metric here: it measures purity of the iron product after flotation.</p>
+                
+                <h2>Tools Used:</h2>
+                
+                <p>This analysis was implemented <strong>in <em>Python</em></strong> inside a <em>Jupyter notebook</em>. The following <em>Python</em> libraries were used and implemented for the project:</p>
+                
+                <ul>
+                    <li><strong>Pandas</strong> for data reading, transformation, filtering, and descriptive stats</li>
+                    <li><strong>Matplotlib</strong> for plotting foundations and figure sizing</li>
+                    <li><strong>Seaborn</strong> for creating pairplots, lineplots, and heatmap visualizations</li>
+                    <li><strong>IPython.display</strong> for a nicer inline view of data frame outputs</li>
+                </ul>
+                
+                <h2>Insights</h2>
+                
+                <h3>Initial data load and exploratory checks</h3>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Reading in Dataset.png" alt="Reading in Dataset">
+                
+                <p>To learn more about the dataset I am working with, I wanted to see how many rows and columns the data has.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/df.shape.png" alt="DataFrame Shape">
+                
+                <p>After running this line of code, we see that there are over 737,000 rows of data and 24 columns (24 variables)</p>
+                
+                <h3>Data type inspection and conversion</h3>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Variable Types.png" alt="Variable Types">
+                
+                <p><strong>Issues Found:</strong> The date column initially showed up as a <em>string</em> variable, which would make it difficult to get insight from. To fix this, I converted the date column to a "datetime" column using the pandas "to_datetime" function.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Fixing the dates.png" alt="Fixing the dates">
+                
+                <p>Now that the date column was converted to be in date format, it enabled time-based filtering and plotting to happen later on.</p>
+                
+                <h3>Quick descriptive statistics</h3>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Descriptive Stats.png" alt="Descriptive Stats">
+                
+                <p>This revealed ranges and possible outliers in process measurements.</p>
+                
+                <h3>Now: Narrowing to the day of the incident (June 1, 2017)</h3>
+                
+                <p>We wanted to <strong>isolate June 1, 2017</strong>, to analyze <em>hourly changes of Iron Concentrate percentage</em>. I filtered the dataset to just show the rows of data within that 24-hour window.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Filtering for Just June 1.png" alt="Filtering for just June 1">
+                
+                <p>For our analysis, however, the only variables we need to look at are the date, % Iron Concentrate, % Silica Concentrate, Ore Pulp pH, and Flotation Column 05 Level.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Choosing Specific Variables.png" alt="Choosing specific variables">
+                
+                <p>Now that we have a clean range of rows from the range of data we need for our analysis, we can figure out what went wrong on June 1.</p>
+                
+                <h3>Exploratory visualizations</h3>
+                
+                <p>First, I created a pairplot to look at the correlations between the variables.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Creating Pairplot.png" alt="Creating Pairplot">
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/Pairplot - Seaborn - Important June Dates.png" alt="Pairplot - Seaborn - Important June Dates">
+                
+                <p>This pairplot allows us to <strong>visually inspect pairwise relationships and distributions</strong> across the chosen variables.</p>
+                
+                <p><strong>Result:</strong> No obvious linear correlations stood out visually across pairs. However, I still wanted to ensure that there were no strong correlations among the different variables in this dataset. So I created a correlation heatmap to confirm my intuition</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/Correlation Heatmap.png" alt="Correlation Heatmap">
+                
+                <p><strong>Result:</strong> As we found earlier, the correlation values are very weak (close to zero), supporting the visual takeaway that <strong>single linear correlations were not strong drivers of % Iron Concentrate variations that day.</strong></p>
+                
+                <h3>Time series lineplots:</h3>
+                
+                <p>I then plotted "% Iron Concentrate" at each time on June 1. The result is shown below.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Code used to create the line plot.png" alt="Code used to create the line plot">
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/Iron Concentrate June 1 - Cleaner.png" alt="Iron Concentrate June 1 - Cleaner">
+                
+                <p>Here we can observe <strong><em>a lot</em> sharp spikes and drops throughout the day.</strong> This stood out to me, as we can clearly see that the levels changed a lot during the day. I was curious what could have been causing that to happen, so I observed changes in the other variables as well to see if any significant changes occurred there too.</p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Code for For Loop.png" alt="Code for For Loop">
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/For Loop Plots/Iron Concentrate.png" alt="Iron Concentrate">
+                
+                <p><em>(Note that this is the same exact plot as earlier)</em></p>
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/For Loop Plots/Silica Concentrate.png" alt="Silica Concentrate">
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/For Loop Plots/Ore Pulp pH.png" alt="Ore Pulp pH">
+                
+                <img src="../assets/images/In-Text Images/Python Iron Mining Project/In-Article Images/Plots/For Loop Plots/Flotations Level 5.png" alt="Flotations Level 5">
+                
+                <h3>Findings from this exploratory analysis</h3>
+                
+                <ul>
+                    <li>"% Iron Concentrate" showed <strong>substantial intraday volatility</strong> on June 1, with <em>sharp increases and decreases</em> not obviously explained by pH, silica %, or column 05 level from simple pairwise plots.</li>
+                    <li>Correlation metrics between % Iron Concentrate and these variables were weak. Nothing obvious emerged from linear correlation alone.</li>
+                    <li>The data's mixed sampling resolution likely masks short-term causal relationships: variables sampled hourly might not align cleanly with the 20-second measurements that capture more abrupt changes.</li>
+                </ul>
+                
+                <h2>Conclusion</h2>
+                
+                <p><strong>The floating process is complex.</strong> Reagent dosing (starch, amine), air flow, froth stability, and particle size distribution can interact nonlinearly.</p>
+                
+                <p>Abrupt changes suggest transient events or control system adjustments. These can include a sudden change in feed composition (ore variability), a reagent dosing step, maintenance events, or instrumentation glitches.</p>
+                
+                <h2>Proposed next analyses and modeling (extensions)</h2>
+                
+                <p>To translate these exploratory findings into operational improvements, the following priorities should guide immediate work:</p>
+                
+                <h3>1. Time Alignment & Resampling (High Priority)</h3>
+                
+                <p>Before any causal interpretation can be trusted, the dataset must be <strong>resampled to a single, practical time frequency,</strong> such as 1 minute for June 1. This process should align hourly and 20-second signals using sensible interpolation methods: <em>forward fill</em> for control settings and <em>linear interpolation</em> for continuous sensor readings. <strong>Our conclusion of weak linear correlations and chaotic spikes is likely influenced by misaligned sampling artifacts.</strong> An aligned dataset will remove these artifacts and enable reliable temporal comparisons, forming the foundation for all subsequent modeling.</p>
+                
+                <h3>2. Create Rolling Statistics and Control Charts (Quick Insight)</h3>
+                
+                <p>Computing <em>rolling mean, median, and standard deviation</em> over 5 to 30 minute windows will quantify how unusual the observed swings in % Iron Concentrate truly are. Our findings documented abrupt up and down movements. Control charts transform those observations into statistically grounded anomaly flags with precise timestamps.</p>
+                
+                <h3>3. Match Flagged Anomalies to Operations Logs (Critical for Root Cause)</h3>
+                
+                <p><em>Gathering operator logs, reagent dosing times, maintenance records, and SCADA alarm logs</em> for June 1 and aligning them with <strong>flagged anomaly timestamps</strong> is essential for root cause analysis. Our findings revealed volatility without clear correlation to measured process variables, suggesting that <strong>explanatory factors may exist outside the sensor data itself</strong>. Pairing statistical anomalies with operational events can reveal whether spikes were caused by human actions, dosing adjustments, feed composition changes, or instrumentation issues. <strong>This step bridges the gap between data patterns and physical plant operations.</strong></p>
+                
+                <h3>4. Implement Short Term Monitoring & Alerts (Practical Safeguard)</h3>
+                
+                <p>Finally, while deeper investigation continues, <strong>implementing lightweight monitoring rules</strong> provides immediate protection for product quality. <strong>Alerting operators when % Iron Concentrate moves beyond a defined threshold</strong> or when rolling standard deviation exceeds acceptable bounds for a sustained period creates a safety net that prevents quality issues from reaching customers. This can be prototyped quickly using existing monitoring tools or a scheduled script that emails alerts.</p>
+                
+                <p>If you enjoyed this project, check out some of my other projects as well, and make sure to connect with me on LinkedIn for more data-driven projects!</p>
+            </div>
+            
+            <a href="../business-analytics.html" class="back-link" style="margin-top: 3rem;">
+                <i class="fas fa-arrow-left"></i>Back to Business Analytics
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="../contact.html" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="quick-links">
+                    <a href="../about.html">About</a>
+                    <a href="../resume.html">Resume</a>
+                    <a href="../business-analytics.html">Business Analytics</a>
+                    <a href="../video-production.html">Video Production</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joseph Korman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+

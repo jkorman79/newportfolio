@@ -232,7 +232,7 @@
                 
                 <img src="../assets/images/In-Text Images/Health Insurance in R/In-Article Pics/Charges_for_Smokers_and_Non-Smokers_RESULT.png" alt="Charges for Smokers and Non-Smokers Result">
                 
-                <p><strong>What jumps out immediately:</strong> The difference here is stark. <strong>The <em>minimum</em> charge for smokers is higher than most of the <em>outliers</em> in the non-smoker group.</strong> That's not just a difference; that is a chasm.</p>
+                <p><strong>What jumps out immediately:</strong> The difference here is stark. <strong>The <em>minimum</em> charge for smokers is <em>higher than 50% of the values</em> in the non-smoker group.</strong> That's not just a difference; that is a chasm.</p>
                 
                 <p><strong>But I still wanted to see the numbers.</strong> Visual patterns can often be misleading, so I ran a t-test to get a definitive answer.</p>
                 
@@ -286,7 +286,7 @@
                 
                 <p><strong>Result:</strong> On average, it seems that <strong>male clients are charged approximately $1,387.20 more</strong> than female clients. That sounds like solid evidence for discrimination, right?</p>
                 
-                <p><strong>Not so fast.</strong> Looking at the R² value of <strong>0.003282</strong>, we can see that <strong>gender explains only 0.3% of the variation in insurance charges.</strong> In other words, 99.7% of the pricing difference is driven by <em>other factors</em> we haven't accounted for yet.</p>
+                <p><strong>Not so fast, though.</strong> Looking at the R² value of <strong>0.003282</strong>, we can see that <strong>gender explains only 0.3% of the variation in insurance charges.</strong> In other words, 99.7% of the pricing difference is driven by <em>other factors</em> we haven't accounted for yet.</p>
                 
                 <p><strong>The problem with this single-variable analysis:</strong> It ignored additional variables that could have been causing this issue. <em>What if the men in this dataset happen to smoke more, have higher BMIs, or are older on average?</em> To answer these questions, <strong>I made a multivariable regression model using all available variables</strong> to control for these potential factors.</p>
                 
@@ -298,7 +298,7 @@
                 
                 <img src="../assets/images/In-Text Images/Health Insurance in R/In-Article Pics/MVR_RESULT.png" alt="MVR Result">
                 
-                <p><strong>Game changer.</strong> The adjusted R² for this model <strong>jumped to 0.74</strong>, meaning this new model explains 74% of the variation in insurance charges. <strong>This is a dramatically better model than the last one.</strong></p>
+                <p><strong>Game changer.</strong> The adjusted R² for this model <strong>jumped to 0.75</strong>, meaning this new model explains about 75% of the variation in insurance charges. <strong>This is a dramatically better model than the last one.</strong></p>
                 
                 <p><strong>The Most Significant Finding:</strong> Once we controlled for all other variables, the p-value for gender became <strong>0.69</strong>! This is <em>far</em> above the 0.05 threshold, meaning <strong>gender actually has no statistically significant effect on insurance charges whatsoever!</strong></p>
                 
@@ -319,7 +319,7 @@
                 
                 <p>This project demonstrates three critical lessons for anyone working with data:</p>
                 
-                <p><strong>1. Never trust a single variable in isolation.</strong> The simple regression suggested that there was gender discrimination going on, but the multiple regression revealed the truth. <strong>Context matters, and confounding variables can mislead you if you're not careful.</strong></p>
+                <p><strong>1. Never trust a single variable in isolation.</strong> The simple regression suggested that there was gender discrimination going on, but the multivariable regression revealed the truth. <strong>Context matters, and confounding variables can mislead you if you're not careful.</strong></p>
                 
                 <p><strong>2. Statistical significance requires proper testing</strong>. Boxplots and visual patterns are great starting points, but <em>you need t-tests, regression analysis, and proper statistical rigor</em> to make defensible claims.</p>
                 

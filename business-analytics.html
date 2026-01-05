@@ -117,29 +117,20 @@
                     <i class="fas fa-certificate"></i>
                     Certifications
                 </button>
+                <button class="certifications-button" id="tableau-only-button" onclick="filterByTag('tableau-only', this, event)">
+                    <i class="fas fa-chart-bar"></i>
+                    Tableau
+                </button>
+                <button class="certifications-button" id="data-visualization-other-button" onclick="filterByTag('data-visualization-other', this, event)">
+                    <i class="fas fa-chart-line"></i>
+                    Other
+                </button>
             </div>
             </div>
             
         <!-- All Projects Section -->
         <div id="all-projects" class="projects-section">
                 <div class="projects-grid">
-                <!-- Sword Project - Power BI Dashboard (Newest) -->
-                <div class="project-card" data-tags="powerbi data-visualization data-visualization-projects">
-                    <a href="articles/sword-project-power-bi-dashboard.html" class="project-thumbnail-link">
-                        <div class="project-thumbnail">
-                            <img src="assets/images/thumbnails/PowerBiMoney.png" alt="Sword Project - Power BI Dashboard">
-                        </div>
-                    </a>
-                    <h3>Sword Project - Power BI Dashboard</h3>
-                    <p>An interactive Power BI dashboard providing comprehensive data visualization and analysis.</p>
-                    <div class="project-tags">
-                        <span class="project-tag tag-powerbi">Power BI</span>
-                    </div>
-                    <a href="articles/sword-project-power-bi-dashboard.html" class="download-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Dashboard
-                    </a>
-                </div>
                 <!-- Starbucks Cluster Analysis -->
                 <div class="project-card" data-tags="excel excel-projects r spss data-visualization data-visualization-projects">
                     <a href="articles/brewing-better-returns-a-data-driven-approach-to-a-new-starbucks-marketing-campaign.html" class="project-thumbnail-link">
@@ -264,6 +255,23 @@
                         View Dashboard
                     </a>
                         </div>
+                <!-- Sword Project - Power BI Dashboard -->
+                <div class="project-card" data-tags="powerbi data-visualization data-visualization-projects">
+                    <a href="articles/sword-project-power-bi-dashboard.html" class="project-thumbnail-link">
+                        <div class="project-thumbnail">
+                            <img src="assets/images/thumbnails/PowerBiMoney.png" alt="Sword Project - Power BI Dashboard">
+                        </div>
+                    </a>
+                    <h3>Sword Project - Power BI Dashboard</h3>
+                    <p>An interactive Power BI dashboard providing comprehensive data visualization and analysis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag tag-powerbi">Power BI</span>
+                    </div>
+                    <a href="articles/sword-project-power-bi-dashboard.html" class="download-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Dashboard
+                    </a>
+                </div>
                 <!-- Excel Projects -->
                 <!-- Sandy Alcantara Dashboard -->
                 <div class="project-card" data-tags="python python-projects excel excel-projects cursor data-visualization data-visualization-projects">
@@ -639,7 +647,7 @@
                 // Activate Excel category button
                 const excelButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'excel'"));
                 if (excelButton) excelButton.classList.add('active');
-            } else if (tag === 'data-visualization' || tag === 'data-visualization-certifications' || tag === 'data-visualization-projects') {
+            } else if (tag === 'data-visualization' || tag === 'data-visualization-certifications' || tag === 'data-visualization-projects' || tag === 'tableau-only' || tag === 'data-visualization-other') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'none';
                 dataVizSubButtonsRow.style.display = 'flex';
@@ -816,6 +824,34 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('data-visualization') && !cardTags.includes('data-visualization-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'tableau-only') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
+                // Show only projects with Tableau tag in data-visualization projects
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('tableau') && cardTags.includes('data-visualization') && !cardTags.includes('data-visualization-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'data-visualization-other') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
+                // Show data-visualization projects that are NOT tableau (excel, r, python, powerbi, etc.)
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('data-visualization') && !cardTags.includes('tableau') && !cardTags.includes('data-visualization-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

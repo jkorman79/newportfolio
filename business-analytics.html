@@ -815,7 +815,8 @@
                 // Show all projects with R tag (excluding certifications)
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
-                    if (cardTags.includes('r') && !cardTags.includes('r-certifications')) {
+                    const tagList = cardTags.split(/\s+/);
+                    if (tagList.includes('r') && !tagList.includes('r-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

@@ -93,6 +93,14 @@
                     <i class="fas fa-folder-open"></i>
                     Projects
                 </button>
+                <button class="certifications-button" id="r-cert-button" onclick="filterByTag('r-certifications', this, event)">
+                    <i class="fas fa-certificate"></i>
+                    R Certifications
+                </button>
+                <button class="certifications-button" id="r-projects-button" onclick="filterByTag('r-projects', this, event)">
+                    <i class="fas fa-folder-open"></i>
+                    Projects
+                </button>
             </div>
             <div class="certifications-row" id="excel-sub-buttons-row" style="display: none;">
                 <button class="certifications-button" id="excel-projects-button" onclick="filterByTag('excel-projects', this, event)">
@@ -504,6 +512,20 @@
                         View Certification
                     </a>
                 </div>
+                <!-- R Certifications -->
+                <div class="project-card" data-tags="r r-certifications">
+                        <div class="project-thumbnail">
+                        <img src="assets/images/thumbnails/Rcertificate.png" alt="R Certification" class="certificate-thumb">
+                        </div>
+                    <h3>R Certification</h3>
+                    <div class="project-tags">
+                        <span class="project-tag tag-r">R</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/msgsndr/JLPEEXW3dO54ZTbjWvVv/media/66d8ccae3fad509778afd910.png" class="download-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i>
+                        Show Credential
+                    </a>
+                </div>
                 <!-- SQL Certifications -->
                 <div class="project-card" data-tags="sql sql-certifications">
                         <div class="project-thumbnail">
@@ -603,6 +625,8 @@
             const sqlProjectsButton = document.getElementById('sql-projects-button');
             const pythonCertButton = document.getElementById('python-cert-button');
             const pythonProjectsButton = document.getElementById('python-projects-button');
+            const rCertButton = document.getElementById('r-cert-button');
+            const rProjectsButton = document.getElementById('r-projects-button');
             const excelProjectsButton = document.getElementById('excel-projects-button');
             const excelTemplatesButton = document.getElementById('excel-templates-button');
             const excelCertButton = document.getElementById('excel-cert-button');
@@ -626,6 +650,8 @@
                 sqlProjectsButton.style.display = 'flex';
                 pythonCertButton.style.display = 'none';
                 pythonProjectsButton.style.display = 'none';
+                rCertButton.style.display = 'none';
+                rProjectsButton.style.display = 'none';
                 // Activate SQL category button
                 const sqlButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'sql'"));
                 if (sqlButton) sqlButton.classList.add('active');
@@ -637,9 +663,24 @@
                 sqlProjectsButton.style.display = 'none';
                 pythonCertButton.style.display = 'flex';
                 pythonProjectsButton.style.display = 'flex';
+                rCertButton.style.display = 'none';
+                rProjectsButton.style.display = 'none';
                 // Activate Python category button
                 const pythonButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'python'"));
                 if (pythonButton) pythonButton.classList.add('active');
+            } else if (tag === 'r' || tag === 'r-certifications' || tag === 'r-projects') {
+                certificationsRow.style.display = 'flex';
+                excelSubButtonsRow.style.display = 'none';
+                dataVizSubButtonsRow.style.display = 'none';
+                sqlCertButton.style.display = 'none';
+                sqlProjectsButton.style.display = 'none';
+                pythonCertButton.style.display = 'none';
+                pythonProjectsButton.style.display = 'none';
+                rCertButton.style.display = 'flex';
+                rProjectsButton.style.display = 'flex';
+                // Activate R category button
+                const rButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'r'"));
+                if (rButton) rButton.classList.add('active');
             } else if (tag === 'excel' || tag === 'excel-projects' || tag === 'excel-templates' || tag === 'excel-certifications') {
                 certificationsRow.style.display = 'none';
                 excelSubButtonsRow.style.display = 'flex';
@@ -655,13 +696,6 @@
                 // Activate Data Visualization category button
                 const dataVizButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'data-visualization'"));
                 if (dataVizButton) dataVizButton.classList.add('active');
-            } else if (tag === 'r') {
-                certificationsRow.style.display = 'none';
-                excelSubButtonsRow.style.display = 'none';
-                dataVizSubButtonsRow.style.display = 'none';
-                // Activate R category button
-                const rButton = Array.from(allCategoryButtons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'r'"));
-                if (rButton) rButton.classList.add('active');
             } else {
                 // Hide both rows for 'all'
                 certificationsRow.style.display = 'none';
@@ -754,6 +788,34 @@
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (cardTags.includes('python') && !cardTags.includes('python-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'r-certifications') {
+                // Show certifications section, hide all projects section
+                allProjectsSection.style.display = 'none';
+                certificationsSection.style.display = 'block';
+                // Show only R certifications
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('r-certifications')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                buttonElement.classList.add('active');
+            } else if (tag === 'r-projects') {
+                // Show all projects section, hide certifications section
+                allProjectsSection.style.display = 'block';
+                certificationsSection.style.display = 'none';
+                // Show all projects with R tag (excluding certifications)
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (cardTags.includes('r') && !cardTags.includes('r-certifications')) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';

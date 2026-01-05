@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>Sword Project - Power BI Dashboard - Joseph Korman</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .powerbi-container {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            margin: 0;
+            padding: 0;
+        }
+        .powerbi-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .back-link {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .back-link:hover {
+            background: rgba(255, 255, 255, 1);
+            text-decoration: underline;
+        }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Joseph Korman</a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../articles.html" class="nav-link">Articles</a>
+                <a href="../business-analytics.html" class="nav-link active">Business Analytics</a>
+                <a href="../video-production.html" class="nav-link">Video Production</a>
+                <a href="../resume.html" class="nav-link">Resume</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back Link -->
+    <a href="../business-analytics.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>Back to Business Analytics
+    </a>
+
+    <!-- Power BI Dashboard -->
+    <div class="powerbi-container">
+        <iframe title="Sword Project" src="https://app.powerbi.com/view?r=eyJrIjoiOGMxZThiZDQtNzZkYi00NDliLTk1MmUtMzBhOGUyNzA1ODAxIiwidCI6ImE4ZDNlMTJhLWE0ZjktNDdjMy1iN2JkLTBmMThmNTBjNDcxMyIsImMiOjN9" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+

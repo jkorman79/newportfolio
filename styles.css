@@ -1336,6 +1336,11 @@ html {
     background-color: #000000; /* Black */
 }
 
+.tag-powerbi {
+    background-color: #f2c811; /* Power BI Yellow/Gold */
+    color: #000;
+}
+
 .project-type-filter {
     display: flex;
     flex-wrap: wrap;

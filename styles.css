@@ -980,6 +980,25 @@ body {
     border: none;
 }
 
+.tableau-resume-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 4rem;
+    padding: 1rem;
+    min-height: 800px;
+}
+
+.tableau-resume-container .tableauPlaceholder {
+    width: 100%;
+    position: relative;
+}
+
+.tableau-resume-container .tableauViz {
+    width: 100% !important;
+}
+
 .download-resume {
     text-align: center;
     margin-bottom: 3rem;
@@ -1136,6 +1155,11 @@ body {
 
     .resume-embed-full iframe {
         height: 800px;
+    }
+
+    .tableau-resume-container {
+        padding: 0.5rem;
+        min-height: 600px;
     }
 
     .contact-links {

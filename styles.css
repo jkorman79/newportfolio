@@ -994,7 +994,7 @@ body:has(.tableau-resume-container) .page-content {
     overflow: hidden;
     margin-bottom: 0;
     padding: 0;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 150px);
     min-height: 600px;
     width: 100%;
 }

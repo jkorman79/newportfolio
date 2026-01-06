@@ -76,79 +76,13 @@
             <script type='text/javascript'>
                 var divElement = document.getElementById('viz1767667397310');
                 var vizElement = divElement.getElementsByTagName('object')[0];
-                if ( divElement.offsetWidth > 800 ) { 
-                    vizElement.style.width='1500px';
-                    vizElement.style.minHeight='877px';
-                    vizElement.style.maxHeight='895px';
-                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                } else if ( divElement.offsetWidth > 500 ) { 
-                    vizElement.style.width='1500px';
-                    vizElement.style.minHeight='877px';
-                    vizElement.style.maxHeight='895px';
-                    vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                } else { 
-                    vizElement.style.width='100%';
-                    vizElement.style.height='1077px';
-                }
+                // Make dashboard fill the viewport
+                vizElement.style.width='100%';
+                vizElement.style.height='calc(100vh - 200px)';
                 var scriptElement = document.createElement('script');
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);
             </script>
-        </div>
-
-        <div class="skills-breakdown">
-            <h3><i class="fas fa-tools"></i> Skills Breakdown</h3>
-            
-            <div class="skill-category">
-                <h4><i class="fas fa-chart-line"></i> Data Analytics</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Tableau</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">R</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SPSS</span>
-                    <span class="skill-tag">Cursor</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h4><i class="fas fa-users"></i> Soft Skills</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Time Management</span>
-                    <span class="skill-tag">Fast Learner</span>
-                    <span class="skill-tag">Attention to Detail</span>
-                    <span class="skill-tag">Adaptability</span>
-                    <span class="skill-tag">Creative Problem Solving</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h4><i class="fas fa-comments"></i> Communication Platforms</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Google Drive</span>
-                    <span class="skill-tag">Notion</span>
-                    <span class="skill-tag">Slack</span>
-                </div>
-            </div>
-
-            <div class="contact-info">
-                <h4><i class="fas fa-envelope"></i> Contact Information</h4>
-                <div class="contact-links">
-                    <a href="contact.html" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <span>Contact</span>
-                    </a>
-                    <a href="https://linkedin.com/in/josephdkorman" target="_blank" class="contact-link linkedin-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://youtube.com/@korproductions-mb8mz?si=F9ZiNjHg_NQ9WsJY" target="_blank" class="contact-link youtube-link">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </a>
-                </div>
-            </div>
         </div>
     </main>
 

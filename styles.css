@@ -994,13 +994,22 @@ body:has(.tableau-resume-container) .page-content {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 70px - 200px);
     width: 100%;
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
+}
+
+/* Ensure footer is visible on resume page */
+body:has(.tableau-resume-container) .footer {
+    position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #1f2937;
 }
 
 .tableau-resume-container .tableauPlaceholder {

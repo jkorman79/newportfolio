@@ -133,7 +133,7 @@ body {
     background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop');
     background-size: cover;
     background-position: center;
-    opacity: 0.35;
+    opacity: 0.15;
     z-index: -2;
 }
 

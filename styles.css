@@ -977,9 +977,14 @@ body {
 
 /* Resume page specific - full page dashboard */
 body:has(.tableau-resume-container) .page-content {
-    padding: 2rem;
+    padding: 0;
     max-width: 100%;
     margin: 0;
+    overflow: visible;
+}
+
+body:has(.tableau-resume-container) {
+    overflow-x: visible;
 }
 
 .tableau-resume-wrapper {
@@ -992,8 +997,9 @@ body:has(.tableau-resume-container) .page-content {
     justify-content: center;
     align-items: flex-start;
     pointer-events: none;
-    padding: 0 20px;
+    padding: 0 40px;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 .tableau-resume-container {
@@ -1005,7 +1011,7 @@ body:has(.tableau-resume-container) .page-content {
     padding: 0;
     height: calc(100vh - 70px);
     width: 100%;
-    max-width: 1440px;
+    max-width: 1600px;
     position: relative;
     pointer-events: auto;
     box-sizing: border-box;

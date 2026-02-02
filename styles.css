@@ -982,6 +982,18 @@ body:has(.tableau-resume-container) .page-content {
     margin: 0;
 }
 
+.tableau-resume-wrapper {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none;
+}
+
 .tableau-resume-container {
     background: white;
     border-radius: 0;
@@ -990,13 +1002,10 @@ body:has(.tableau-resume-container) .page-content {
     margin: 0;
     padding: 0;
     height: calc(100vh - 70px);
-    width: min(100vw, 1440px);
+    width: 100%;
     max-width: 1440px;
-    position: fixed;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
+    position: relative;
+    pointer-events: auto;
 }
 
 .tableau-resume-container .tableauPlaceholder {
@@ -1168,6 +1177,10 @@ body:has(.tableau-resume-container) .page-content {
         height: 800px;
     }
 
+    .tableau-resume-wrapper {
+        top: 60px;
+    }
+    
     .tableau-resume-container {
         padding: 0.5rem;
         min-height: 600px;

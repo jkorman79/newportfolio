@@ -995,39 +995,42 @@ body:has(.tableau-resume-container) {
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    pointer-events: none;
-    padding: 0 40px;
+    align-items: center;
+    padding: 0;
     box-sizing: border-box;
-    overflow: visible;
+    overflow: hidden;
 }
 
+/* Dashboard is 1500x768. Size container to fit viewport while keeping aspect ratio, capped at 1500x768 */
 .tableau-resume-container {
     background: white;
     border-radius: 0;
     box-shadow: none;
-    overflow: visible;
-    margin: 0;
+    overflow: hidden;
+    margin: auto;
     padding: 0;
-    height: calc(100vh - 70px);
-    width: 100%;
-    max-width: 1600px;
+    width: min(1500px, 100vw, calc((100vh - 70px) * 1500 / 768));
+    height: min(768px, calc(100vh - 70px), calc(100vw * 768 / 1500));
+    aspect-ratio: 1500 / 768;
+    max-width: 1500px;
+    max-height: 768px;
     position: relative;
     pointer-events: auto;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .tableau-resume-container .tableauPlaceholder {
     width: 100%;
     height: 100%;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .tableau-resume-container .tableauViz {
     width: 100% !important;
     height: 100% !important;
-    overflow: visible !important;
+    overflow: hidden !important;
 }
 
 .download-resume {
@@ -1193,8 +1196,7 @@ body:has(.tableau-resume-container) {
     }
     
     .tableau-resume-container {
-        padding: 0.5rem;
-        min-height: 600px;
+        padding: 0;
     }
 
     .contact-links {

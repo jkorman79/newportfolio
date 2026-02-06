@@ -975,16 +975,16 @@ body {
     border: none;
 }
 
-/* Resume page specific - full page dashboard */
+/* Resume page specific - full page dashboard, no left whitespace */
 body:has(.tableau-resume-container) .page-content {
     padding: 0;
     max-width: 100%;
     margin: 0;
-    overflow: visible;
+    overflow: hidden;
 }
 
 body:has(.tableau-resume-container) {
-    overflow-x: visible;
+    overflow-x: hidden;
 }
 
 .tableau-resume-wrapper {
@@ -993,31 +993,30 @@ body:has(.tableau-resume-container) {
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    display: block;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     overflow: hidden;
 }
 
-/* Dashboard is 1500x768. Size container to fit viewport while keeping aspect ratio, capped at 1500x768 */
+/* Dashboard fills entire viewport below nav - whole thing visible, no left whitespace */
 .tableau-resume-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: white;
     border-radius: 0;
     box-shadow: none;
     overflow: hidden;
-    margin: auto;
+    margin: 0;
     padding: 0;
-    width: min(1500px, 100vw, calc((100vh - 70px) * 1500 / 768));
-    height: min(768px, calc(100vh - 70px), calc(100vw * 768 / 1500));
-    aspect-ratio: 1500 / 768;
-    max-width: 1500px;
-    max-height: 768px;
-    position: relative;
-    pointer-events: auto;
     box-sizing: border-box;
-    flex-shrink: 0;
 }
 
 .tableau-resume-container .tableauPlaceholder {

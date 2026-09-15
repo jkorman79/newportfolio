@@ -498,12 +498,55 @@ function getPortfolioSearchQuery() {
     return (input && input.value ? input.value : '').trim().toLowerCase();
 }
 
+const VIDEO_CATEGORY_SEARCH_LABELS = {
+    independent: 'Independent Productions',
+    freelance: 'Freelance Productions',
+    'harpur-standard': 'Harpur Edge Professional Work Standard Format',
+    'harpur-reels': 'Harpur Edge Professional Work Reels',
+    'camp-standard': 'Camp Sports Professional Work Standard Format',
+    'camp-reels': 'Camp Sports Professional Work Reels',
+    'wynn-standard': 'Wynn Productions Professional Work Standard Format',
+    'wynn-reels': 'Wynn Productions Professional Work Reels',
+    'jomboy-created': 'Jomboy Media Professional Work Created',
+    'jomboy-featured': 'Jomboy Media Professional Work Featured'
+};
+
+function getCategorySearchText(element) {
+    const parts = [];
+
+    element.querySelectorAll('.project-tag, .video-section-tag').forEach(tagEl => {
+        parts.push(tagEl.textContent);
+    });
+
+    const dataTags = (element.getAttribute('data-tags') || '').toLowerCase();
+    if (dataTags) {
+        parts.push(dataTags.replace(/[-_]/g, ' '));
+        if (dataTags.includes('excel-templates')) parts.push('templates');
+        if (dataTags.includes('certifications')) parts.push('certifications');
+        if (dataTags.includes('projects')) parts.push('projects');
+        if (dataTags.includes('data-visualization') && !dataTags.includes('tableau')) {
+            parts.push('other');
+        }
+    }
+
+    const category = element.getAttribute('data-category') || '';
+    if (category) {
+        parts.push(category.replace(/[-_]/g, ' '));
+        if (VIDEO_CATEGORY_SEARCH_LABELS[category]) {
+            parts.push(VIDEO_CATEGORY_SEARCH_LABELS[category]);
+        }
+    }
+
+    return parts.join(' ');
+}
+
 function matchesPortfolioSearch(element, query) {
     if (!query) return true;
     const titleEl = element.querySelector('h3');
     const descEl = element.querySelector('p');
     const title = titleEl ? titleEl.textContent : '';
     const desc = descEl ? descEl.textContent : '';
-    return `${title} ${desc}`.toLowerCase().includes(query);
+    const categories = getCategorySearchText(element);
+    return `${title} ${desc} ${categories}`.toLowerCase().includes(query);
 }
 

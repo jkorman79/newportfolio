@@ -1305,6 +1305,45 @@ html {
     margin-bottom: 3rem;
 }
 
+.portfolio-search-wrap {
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+}
+
+.portfolio-search-wrap i.fa-search {
+    position: absolute;
+    left: 1.15rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+}
+
+.portfolio-search-wrap input {
+    width: 100%;
+    padding: 0.85rem 1.15rem 0.85rem 2.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #1f2937;
+    background: #fff;
+}
+
+.portfolio-search-wrap input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.search-empty-state {
+    text-align: center;
+    color: #6b7280;
+    font-size: 1.05rem;
+    margin: 1rem 0 2rem;
+}
+
 .software-categories {
     display: flex;
     flex-wrap: wrap;

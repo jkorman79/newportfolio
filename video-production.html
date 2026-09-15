@@ -46,24 +46,30 @@
     <main class="page-content">
 
         <!-- Video Categories -->
+        <div class="portfolio-search-wrap">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="search" id="portfolio-search" placeholder="Search videos by title..." aria-label="Search videos">
+        </div>
         <div class="video-categories">
-            <button class="category-button active" onclick="filterVideos('all')">
+            <button class="category-button active" onclick="filterVideos('all', this)">
                 <i class="fas fa-th-large"></i>
                 All
             </button>
-            <button class="category-button" onclick="filterVideos('independent')">
+            <button class="category-button" onclick="filterVideos('independent', this)">
                 <i class="fas fa-film"></i>
                 Independent Productions
             </button>
-            <button class="category-button" onclick="filterVideos('freelance')">
+            <button class="category-button" onclick="filterVideos('freelance', this)">
                 <i class="fas fa-handshake"></i>
                 Freelance Productions
             </button>
-            <button class="category-button" onclick="filterVideos('internships')">
+            <button class="category-button" onclick="filterVideos('internships', this)">
                 <i class="fas fa-briefcase"></i>
                 Professional Work
             </button>
         </div>
+
+        <p id="search-empty-state" class="search-empty-state" style="display: none;">No videos match your search.</p>
 
         <!-- All Videos Section -->
         <div id="all" class="video-section">
@@ -1164,7 +1170,7 @@
             });
 
             // Collect all video items
-            document.querySelectorAll('.video-item').forEach(item => {
+            document.querySelectorAll('.video-section:not(#all) .video-item').forEach(item => {
                 const category = item.getAttribute('data-category');
                 if (videosByCategory.hasOwnProperty(category)) {
                     videosByCategory[category].push(item.cloneNode(true));
@@ -1216,33 +1222,85 @@
             }
         });
 
-        function filterVideos(category) {
+        function filterVideos(category, buttonElement) {
+            currentVideoCategory = category || 'all';
+            if (buttonElement) {
+                lastVideoButton = buttonElement;
+            } else if (typeof event !== 'undefined' && event && event.target) {
+                lastVideoButton = event.target.closest('.category-button') || lastVideoButton;
+            }
+
+            const buttons = document.querySelectorAll('.video-categories .category-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            if (lastVideoButton) lastVideoButton.classList.add('active');
+
+            if (getPortfolioSearchQuery()) {
+                applyVideoSearch();
+                return;
+            }
+
+            const emptyState = document.getElementById('search-empty-state');
+            if (emptyState) emptyState.style.display = 'none';
+
             const sections = document.querySelectorAll('.video-section');
             sections.forEach(section => section.style.display = 'none');
-            
-            const buttons = document.querySelectorAll('.category-button');
-            buttons.forEach(button => button.classList.remove('active'));
-            
-            if (category === 'all') {
+
+            if (currentVideoCategory === 'all') {
                 populateAllVideos();
                 document.getElementById('all').style.display = 'block';
             } else {
-                document.getElementById(category).style.display = 'block';
+                document.getElementById(currentVideoCategory).style.display = 'block';
             }
-            
-            event.target.classList.add('active');
+        }
+
+        let currentVideoCategory = 'all';
+        let lastVideoButton = null;
+
+        function applyVideoSearch() {
+            const query = getPortfolioSearchQuery();
+            const emptyState = document.getElementById('search-empty-state');
+
+            if (!query) {
+                if (emptyState) emptyState.style.display = 'none';
+                filterVideos(currentVideoCategory, lastVideoButton);
+                return;
+            }
+
+            populateAllVideos();
+            document.querySelectorAll('.video-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('all').style.display = 'block';
+
+            let visibleCount = 0;
+            document.querySelectorAll('#all-videos-grid .video-item').forEach(item => {
+                const match = matchesPortfolioSearch(item, query);
+                item.style.display = match ? '' : 'none';
+                if (match) visibleCount += 1;
+            });
+
+            if (emptyState) {
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
         }
 
         // Initialize: populate all videos and show "all" section by default
         document.addEventListener('DOMContentLoaded', function() {
+            lastVideoButton = document.querySelector('.video-categories .category-button.active');
             populateAllVideos();
             document.getElementById('all').style.display = 'block';
-            // Hide other sections
             document.querySelectorAll('.video-section').forEach(section => {
                 if (section.id !== 'all') {
                     section.style.display = 'none';
                 }
             });
+
+            const searchInput = document.getElementById('portfolio-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    applyVideoSearch();
+                });
+            }
         });
 
         function filterCompanyVideos(company) {

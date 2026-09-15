@@ -493,3 +493,17 @@ function preloadImages() {
 // Initialize preloading
 document.addEventListener('DOMContentLoaded', preloadImages);
 
+function getPortfolioSearchQuery() {
+    const input = document.getElementById('portfolio-search');
+    return (input && input.value ? input.value : '').trim().toLowerCase();
+}
+
+function matchesPortfolioSearch(element, query) {
+    if (!query) return true;
+    const titleEl = element.querySelector('h3');
+    const descEl = element.querySelector('p');
+    const title = titleEl ? titleEl.textContent : '';
+    const desc = descEl ? descEl.textContent : '';
+    return `${title} ${desc}`.toLowerCase().includes(query);
+}
+

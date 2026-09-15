@@ -46,6 +46,10 @@
 
         <!-- Software Categories -->
         <div class="software-categories-container">
+        <div class="portfolio-search-wrap">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="search" id="portfolio-search" placeholder="Search projects by title or description..." aria-label="Search projects">
+        </div>
         <div class="software-categories">
                 <button class="category-button active" onclick="filterByTag('all', this)">
                     <i class="fas fa-th-large"></i>
@@ -135,6 +139,8 @@
                 </button>
             </div>
             </div>
+
+        <p id="search-empty-state" class="search-empty-state" style="display: none;">No projects match your search.</p>
             
         <!-- All Projects Section -->
         <div id="all-projects" class="projects-section">
@@ -373,7 +379,7 @@
                 <!-- Excel Projects (Reverse Chronological Order) -->
                 <div class="project-card" data-tags="excel excel-templates">
                     <div class="project-thumbnail">
-                        <img src="assets/images/thumbnails/Budget-Thumb.png" alt="Yearly Budget Project">
+                        <img src="assets/images/thumbnails/Budget-Thumb.png?v=2" alt="Yearly Budget Project">
                     </div>
                     <h3>Yearly Budget</h3>
                     <p>Personal yearly budget tracking and planning spreadsheet with automated calculations and visual charts.</p>
@@ -972,9 +978,76 @@
                         card.style.display = 'none';
                     }
                 });
-                buttonElement.classList.add('active');
+                if (buttonElement) buttonElement.classList.add('active');
+            }
+
+            applyProjectSearch();
+        }
+
+        let lastProjectFilter = { tag: 'all', button: null };
+
+        function applyProjectSearch() {
+            const query = typeof getPortfolioSearchQuery === 'function' ? getPortfolioSearchQuery() : '';
+            const emptyState = document.getElementById('search-empty-state');
+            const allProjectsSection = document.getElementById('all-projects');
+            const certificationsSection = document.getElementById('certifications-section');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            if (!query) {
+                if (emptyState) emptyState.style.display = 'none';
+                return;
+            }
+
+            let visibleCount = 0;
+            let hasProject = false;
+            let hasCert = false;
+
+            projectCards.forEach(card => {
+                const match = matchesPortfolioSearch(card, query);
+                card.style.display = match ? 'block' : 'none';
+                if (match) {
+                    visibleCount += 1;
+                    const tags = card.getAttribute('data-tags') || '';
+                    if (tags.includes('certifications')) {
+                        hasCert = true;
+                    } else {
+                        hasProject = true;
+                    }
+                }
+            });
+
+            if (allProjectsSection) {
+                allProjectsSection.style.display = hasProject ? 'block' : 'none';
+            }
+            if (certificationsSection) {
+                certificationsSection.style.display = hasCert ? 'block' : 'none';
+            }
+            if (emptyState) {
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
             }
         }
+
+        const originalFilterByTag = filterByTag;
+        filterByTag = function(tag, buttonElement, event) {
+            lastProjectFilter = { tag: tag, button: buttonElement };
+            originalFilterByTag(tag, buttonElement, event);
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('portfolio-search');
+            if (!searchInput) return;
+            lastProjectFilter.button = document.querySelector('.category-button.active');
+            searchInput.addEventListener('input', function() {
+                if (!getPortfolioSearchQuery()) {
+                    originalFilterByTag(
+                        lastProjectFilter.tag,
+                        lastProjectFilter.button || document.querySelector('.category-button.active')
+                    );
+                    return;
+                }
+                applyProjectSearch();
+            });
+        });
     </script>
 </body>
 </html>
